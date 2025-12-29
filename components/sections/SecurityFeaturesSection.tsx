@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export const SecurityFeaturesSection = (): JSX.Element => {
   return (
@@ -86,9 +87,11 @@ export const SecurityFeaturesSection = (): JSX.Element => {
               <div className="absolute inset-0 pointer-events-none" />
 
               {/* Card Image */}
-              <img
+              <Image
                 src="/sfv1.png"
                 alt="Native Script Locks"
+                width={400}
+                height={300}
                 className="w-full h-full object-contain"
               />
             </div>
@@ -138,9 +141,11 @@ export const SecurityFeaturesSection = (): JSX.Element => {
               <div className="absolute inset-0 pointer-events-none" />
 
               {/* Card Image */}
-              <img
+              <Image
                 src="/sfv2.png"
                 alt="On-Chain Risk Engine"
+                width={400}
+                height={300}
                 className="w-full h-full object-contain"
               />
             </div>
@@ -168,7 +173,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                 }}
               >
                 Automated monitoring & liquidation. Cancel or reclaim funds if
-                loan steps aren't completed.
+                loan steps aren&apos;t completed.
               </p>
             </div>
           </div>
@@ -191,9 +196,11 @@ export const SecurityFeaturesSection = (): JSX.Element => {
               <div className="absolute inset-0 pointer-events-none" />
 
               {/* Card Image */}
-              <img
+              <Image
                 src="/sfv3.png"
                 alt="Pre-Signed Settlements"
+                width={400}
+                height={300}
                 className="w-full h-full object-contain"
               />
             </div>

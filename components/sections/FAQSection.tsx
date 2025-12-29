@@ -59,7 +59,7 @@ export const FAQSection = (): JSX.Element => {
                 letterSpacing: "-0.4px",
               }}
             >
-              Got questions? We've got answers
+              Got questions? We&apos;ve got answers
             </h2>
             <p
               className="text-[#71717A] text-center text-base sm:text-lg md:text-xl px-4"

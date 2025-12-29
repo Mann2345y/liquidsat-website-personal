@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const MainContentSection = (): JSX.Element => {
@@ -52,10 +53,12 @@ export const MainContentSection = (): JSX.Element => {
               <CardContent className="p-6 text-center">
                 <div className="flex flex-col items-center gap-4 h-full">
                   <div className="flex w-14 h-14 items-center justify-center bg-wwwfigmacomfeta rounded-full">
-                    <img
+                    <Image
                       className="w-7 h-7"
                       alt="Security feature icon"
                       src={feature.icon}
+                      width={28}
+                      height={28}
                       data-testid={`img-security-icon-${index}`}
                     />
                   </div>

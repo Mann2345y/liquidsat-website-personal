@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 
 export const BorrowLendSection = (): JSX.Element => {
   const [activeTab, setActiveTab] = useState<"borrowers" | "lenders">(
@@ -100,7 +101,7 @@ export const BorrowLendSection = (): JSX.Element => {
                   letterSpacing: "-0.4px",
                 }}
               >
-                From advanced tools to seamless navigation, we've designed
+                From advanced tools to seamless navigation, we&apos;ve designed
                 everything to elevate your Bitcoin experience.
               </p>
               <button
@@ -131,13 +132,19 @@ export const BorrowLendSection = (): JSX.Element => {
 
           {/* Two Cards - Peer-to-Pool and Peer-to-Peer */}
           <div className="flex flex-col md:flex-row flex-wrap md:flex-nowrap items-center w-full gap-4 sm:gap-5 min-h-[300px] lg:h-[424px]">
-            <img
+            <Image
               src={"/left-image.png"}
+              alt="Peer-to-Pool"
+              width={500}
+              height={424}
               className="h-full w-full grow object-cover rounded-lg"
             />
 
-            <img
+            <Image
               src={"/right-image.png"}
+              alt="Peer-to-Peer"
+              width={500}
+              height={424}
               className="h-full w-full grow object-cover rounded-lg"
             />
           </div>
@@ -288,9 +295,11 @@ export const BorrowLendSection = (): JSX.Element => {
                     borderRadius: "16px",
                   }}
                 >
-                  <img
+                  <Image
                     src="/l1i1.png"
                     alt="Avatar 1"
+                    width={100}
+                    height={100}
                     style={{
                       position: "absolute",
                       left: "5.89px",
@@ -330,9 +339,11 @@ export const BorrowLendSection = (): JSX.Element => {
                     borderRadius: "16px",
                   }}
                 >
-                  <img
+                  <Image
                     src="/l1i2.png"
                     alt="Avatar 2"
+                    width={100}
+                    height={100}
                     style={{
                       position: "absolute",
                       left: "0px",
@@ -419,9 +430,11 @@ export const BorrowLendSection = (): JSX.Element => {
                     borderRadius: "16px",
                   }}
                 >
-                  <img
+                  <Image
                     src="/l2i1.png"
                     alt="Avatar 1"
+                    width={100}
+                    height={100}
                     style={{
                       position: "absolute",
                       left: "0px",
@@ -461,9 +474,11 @@ export const BorrowLendSection = (): JSX.Element => {
                     borderRadius: "16px",
                   }}
                 >
-                  <img
+                  <Image
                     src="/l2i2.png"
                     alt="Avatar 2"
+                    width={100}
+                    height={100}
                     style={{
                       position: "absolute",
                       left: "0px",
@@ -503,9 +518,11 @@ export const BorrowLendSection = (): JSX.Element => {
                     borderRadius: "16px",
                   }}
                 >
-                  <img
+                  <Image
                     src="/l2i3.png"
                     alt="Avatar 3"
+                    width={100}
+                    height={100}
                     style={{
                       position: "absolute",
                       left: "0px",
@@ -588,9 +605,11 @@ export const BorrowLendSection = (): JSX.Element => {
                     position: "relative",
                   }}
                 >
-                  <img
+                  <Image
                     src="/l3i1.png"
                     alt="Avatar"
+                    width={100}
+                    height={100}
                     style={{
                       position: "absolute",
                       left: "0px",

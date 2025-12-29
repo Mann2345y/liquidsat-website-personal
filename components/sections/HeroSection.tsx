@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export const HeroSection = (): JSX.Element => {
   return (
@@ -31,9 +32,11 @@ export const HeroSection = (): JSX.Element => {
             {/* Logo & Nav Links */}
             <div className="flex items-center gap-3 sm:gap-6 md:gap-9">
               {/* Logo */}
-              <img
+              <Image
                 src="/logo.png"
                 alt="logo-image"
+                width={100}
+                height={32}
                 className="h-6 sm:h-8 w-auto object-contain"
               />
 
@@ -176,8 +179,8 @@ export const HeroSection = (): JSX.Element => {
           color: "#71717A",
         }}
       >
-        19.9 Million BTC Lie Idle — Let's Change That by brings liquidity to
-        native Bitcoin — bridging ecosystems without bridges.
+        19.9 Million BTC Lie Idle — Let&apos;s Change That by brings liquidity
+        to native Bitcoin — bridging ecosystems without bridges.
       </p>
     </section>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const LiquidityOptionsSection = (): JSX.Element => {
@@ -73,10 +74,12 @@ export const LiquidityOptionsSection = (): JSX.Element => {
               <CardContent className="p-[22px] text-center">
                 <div className="flex flex-col items-center gap-4">
                   <div className="flex w-14 h-14 items-center justify-center bg-wwwfigmacomserenade rounded-full">
-                    <img
+                    <Image
                       className="w-7 h-7"
                       alt={`${option.title} icon`}
                       src={option.icon}
+                      width={28}
+                      height={28}
                       data-testid={`img-liquidity-icon-${index}`}
                     />
                   </div>

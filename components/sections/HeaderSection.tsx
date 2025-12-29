@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export const HeaderSection = (): JSX.Element => {
@@ -27,9 +28,11 @@ export const HeaderSection = (): JSX.Element => {
       <div className="flex items-center justify-between w-full px-3 sm:px-4 md:px-8 lg:px-16 xl:px-24 py-2 sm:py-3">
         {/* Logo section */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <img
+          <Image
             src="/LiquidSat_LightBackground.svg"
             alt="LiquidSat Logo"
+            width={96}
+            height={96}
             className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
           />
         </div>
