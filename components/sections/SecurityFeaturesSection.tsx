@@ -70,10 +70,10 @@ export const SecurityFeaturesSection = (): JSX.Element => {
         </div>
 
         {/* Cards Grid */}
-        <div className="flex flex-col lg:flex-row items-start gap-4 sm:gap-6 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 w-full lg:grid-rows-1">
           {/* Card 1 - Native Script Locks */}
           <div
-            className="relative flex flex-col justify-end items-start p-6 sm:p-9 gap-6 sm:gap-8 rounded-[16px] sm:rounded-[20px] flex-1 w-full"
+            className="relative flex flex-col justify-start items-start p-6 sm:p-9 gap-6 sm:gap-8 rounded-[16px] sm:rounded-[20px] w- full h-full"
             style={{
               minHeight: "300px",
               background: "#FFFFFF",
@@ -81,8 +81,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
               border: "1px solid #DADDE3",
             }}
           >
-            {/* Visual Container with Gradient Mask */}
-            <div className="relative w-full h-full flex-1 flex items-end gap-3">
+            <div className="relative w-full flex-1 flex items-center gap-3">
               {/* Gradient Mask Overlay */}
               <div className="absolute inset-0 pointer-events-none" />
 
@@ -92,12 +91,11 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                 alt="Native Script Locks"
                 width={400}
                 height={300}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain min-h-[180px]"
               />
             </div>
-
             {/* Text Content */}
-            <div className="relative z-10 flex flex-col gap-2 w-full">
+            <div className="relative z-10 flex flex-col gap-2 w-full min-h-[100px] mt-[12px] items-start">
               <h3
                 className="text-[#27272A] text-lg sm:text-xl"
                 style={{
@@ -123,11 +121,13 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                 lock.
               </p>
             </div>
+
+            {/* Visual Container with Gradient Mask */}
           </div>
 
           {/* Cards 2 & 3 Container */}
           <div
-            className="relative flex flex-col justify-end items-start p-6 sm:p-9 gap-4 sm:gap-6 flex-1 w-full rounded-[16px] sm:rounded-[20px]"
+            className="relative flex flex-col justify-start items-start p-6 sm:p-9 gap-4 sm:gap-6 w-full h-full rounded-[16px] sm:round ed-[20px]"
             style={{
               minHeight: "300px",
               background: "#FFFFFF",
@@ -135,8 +135,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
               border: "1px solid #DADDE3",
             }}
           >
-            {/* Visual Container */}
-            <div className="relative w-full h-full flex-1 flex flex-col justify-center items-center gap-2.5">
+            <div className="relative w-full flex-1 flex flex-col justify-center items-center gap-2.5">
               {/* Gradient Mask Overlay */}
               <div className="absolute inset-0 pointer-events-none" />
 
@@ -146,12 +145,11 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                 alt="On-Chain Risk Engine"
                 width={400}
                 height={300}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain min-h-[180px]"
               />
             </div>
-
             {/* Text Content */}
-            <div className="relative z-10 flex flex-col gap-2 w-full">
+            <div className="relative z-10 flex flex-col gap-2 w-full min-h-[100px] mt-[12px] items-start">
               <h3
                 className="text-[#27272A] text-lg sm:text-xl"
                 style={{
@@ -176,11 +174,13 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                 loan steps aren&apos;t completed.
               </p>
             </div>
+
+            {/* Visual Container */}
           </div>
 
           {/* Card 3 - Pre-Signed Settlements */}
           <div
-            className="relative flex flex-col justify-end items-start p-6 sm:p-9 gap-6 sm:gap-8 flex-1 w-full rounded-[16px] sm:rounded-[20px] overflow-hidden"
+            className="relative flex flex-col justify-start items-start p-6 sm:p-9 gap-6 sm:gap-8 w-full h-full rounded-[16px] sm:rounded-[20px] overflow-hi  dden"
             style={{
               minHeight: "300px",
               background: "#FFFFFF",
@@ -189,9 +189,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
             }}
           >
             {/* Background Pattern */}
-
-            {/* Visual Container */}
-            <div className="relative w-full h-full flex-1 flex flex-col justify-center items-center">
+            <div className="relative w-full flex-1 flex flex-col justify-center items-center">
               {/* Gradient Mask Overlay */}
               <div className="absolute inset-0 pointer-events-none" />
 
@@ -201,12 +199,11 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                 alt="Pre-Signed Settlements"
                 width={400}
                 height={300}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain min-h-[180px]"
               />
             </div>
-
             {/* Text Content */}
-            <div className="relative z-10 flex flex-col gap-2 w-full">
+            <div className="relative z-10 flex flex-col gap-2 w-full min-h-[100px] mt-[12px] items-start">
               <h3
                 className="text-[#27272A] text-lg sm:text-xl"
                 style={{
@@ -231,6 +228,8 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                 without wrapped assets
               </p>
             </div>
+
+            {/* Visual Container */}
           </div>
         </div>
       </div>

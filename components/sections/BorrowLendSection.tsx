@@ -204,12 +204,12 @@ export const BorrowLendSection = (): JSX.Element => {
               </button>
               <button
                 onClick={() => setActiveTab("lenders")}
-                className={`flex flex-row justify-center items-center rounded-[8px] transition-all duration-300 flex-1 ${
+                className={`flex flex-row justify-center items-center rounded-[30px] transition-all duration-300 flex-1 ${
                   activeTab === "lenders" ? "border border-[#C5C5C5]" : ""
                 }`}
                 style={{
-                  height: "40px",
-                  padding: "10px 16px",
+                  height: "48px",
+                  padding: "14px 16px",
                   background:
                     activeTab === "lenders"
                       ? "linear-gradient(100.23deg, rgba(254, 215, 170, 0.2) 22.17%, rgba(253, 186, 116, 0.2) 74.43%, rgba(251, 146, 60, 0.2) 100%)"

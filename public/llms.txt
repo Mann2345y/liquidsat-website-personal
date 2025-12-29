@@ -1,32 +1,58 @@
-# LiquidSat - Bitcoin Liquidity Platform
+# LiquidSat - First Self-Custodial, Cross-Chain BTCFi Protocol
 
 ## About
-LiquidSat is a Bitcoin liquidity platform that allows users to unlock capital from their Bitcoin holdings without selling. We provide Bitcoin-backed loans and lending services.
+LiquidSat is the first self-custodial, cross-chain BTCFi protocol that unlocks native BTC liquidity without bridges, custodians, or wrapped assets. Lock BTC on Bitcoin, get stablecoins instantly via script-based escrow. Your keys. Your BTC. Your yield.
+
+## Core Value Proposition
+"Your BTC. Your Yield. No Wraps." - Make your Bitcoin work for you without leaving Bitcoin.
 
 ## Main Features
-- Bitcoin-backed loans
-- Instant liquidity access
-- Competitive interest rates
-- No selling required
-- Secure Bitcoin custody
-- Flexible loan terms
+- Native BTC script locks (no wrapped BTC)
+- Self-custodial protocol
+- Cross-chain liquidity without bridges
+- Instant stablecoin loans against BTC
+- On-chain risk engine
+- Pre-signed settlements
+- Deterministic loan outcomes
+- Non-custodial by default
+
+## Key Differentiators
+- No wrapped assets (no wBTC, no bridges)
+- Bitcoin-native script-based escrow
+- Self-custody throughout entire process
+- Funds move only after approvals and BTC lock
+- Verifiable on-chain transactions
+- Powered by Bitcoin scripts, not bridges
+- True Bitcoin security by design
 
 ## Use Cases
-- Access liquidity while maintaining Bitcoin position
-- Borrow against Bitcoin collateral
-- Lend Bitcoin to earn yield
-- Unlock capital for business or personal needs
+- Borrow stablecoins without selling BTC
+- Lend BTC to earn yield (self-custodial)
+- Unlock BTC capital efficiency
+- Access cross-chain liquidity natively
+- Keep BTC exposure while accessing liquidity
+
+## Technology Architecture
+- Native Bitcoin script locks
+- Cross-chain proofs without wrapped assets
+- Automated on-chain risk monitoring
+- Pre-signed settlement transactions
+- Self-custodial smart contract logic
+- Deterministic liquidation protection
+
+## Target Audience
+- Bitcoin maximalists seeking self-custody
+- BTC holders wanting yield without wrapping
+- DeFi users tired of bridge risks
+- Long-term HODLers needing liquidity
+- Developers building on Bitcoin L2s
+- BTCFi ecosystem participants
 
 ## Key Information
-- Platform: Bitcoin DeFi
-- Service: Bitcoin lending and borrowing
+- Category: BTCFi Protocol
+- Type: Self-Custodial, Cross-Chain
 - Website: https://liquidsat.com
-- Focus: Bitcoin liquidity solutions
-
-## Technology
-- Lightning Network integration
-- Secure multi-signature custody
-- Real-time Bitcoin price feeds
-- Automated liquidation protection
+- Focus: Native BTC liquidity without bridges
+- Ecosystem: CoreDAO, Bitcoin L2s
 
 > For detailed documentation, visit https://liquidsat.com/llms-full.txt

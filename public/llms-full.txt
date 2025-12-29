@@ -1,142 +1,166 @@
-# LiquidSat - Complete Platform Documentation for AI/LLM Indexing
+# LiquidSat - Complete BTCFi Protocol Documentation for AI/LLM Indexing
 
 ## Company Overview
-LiquidSat is a Bitcoin-first liquidity platform designed to help Bitcoin holders unlock the value of their assets without selling them. We bridge traditional finance with Bitcoin innovation.
+LiquidSat is the first self-custodial, cross-chain BTCFi protocol designed to unlock native Bitcoin liquidity without bridges, custodians, or wrapped assets. We enable BTC holders to access stablecoins instantly while maintaining full custody of their Bitcoin through native script-based escrow.
 
 ## Core Mission
-"Unlock Capital, Stay Bitcoin True" - Enabling Bitcoin holders to access liquidity while maintaining their long-term Bitcoin position and conviction.
+"Your BTC. Your Yield. No Wraps." - Empowering Bitcoin holders to make their BTC work without leaving Bitcoin. We're building the BTCFi infrastructure that Bitcoin deserves—no bridges, no wrappers, no excuses.
+
+## Key Innovation: Native Bitcoin Security
+Unlike wrapped BTC solutions (wBTC, renBTC) that rely on custodians and bridges, LiquidSat uses:
+- **Native Bitcoin Script Locks**: BTC locked directly on Bitcoin using script-based escrow
+- **Pre-Signed Settlements**: Deterministic outcomes for every loan
+- **On-Chain Risk Engine**: Automated monitoring without custodial risk
+- **Cross-Chain Proofs**: No wrapped assets needed for cross-chain liquidity
 
 ## Main Products and Services
 
-### 1. Bitcoin-Backed Loans
-- Borrow fiat or stablecoins using Bitcoin as collateral
-- Flexible loan-to-value (LTV) ratios
-- Competitive interest rates
-- No credit checks required
-- Fast approval and funding
-- Retain Bitcoin price exposure
+### 1. Self-Custodial BTC Borrowing
+- Lock BTC using native Bitcoin scripts (no wrapped BTC)
+- Receive stablecoins instantly across chains
+- Maintain full custody throughout the process
+- Script-based escrow ensures funds move only after approvals
+- No credit checks, no KYC (decentralized)
+- Pre-signed settlement transactions
+- Automated liquidation protection via on-chain risk engine
 
-### 2. Bitcoin Lending
-- Lend your Bitcoin to earn yield
-- Secure custody solutions
-- Transparent interest rates
-- Flexible terms
-- Risk-managed lending pools
+### 2. Non-Custodial BTC Lending
+- Lend BTC without wrapping or bridging
+- Self-custodial yield generation
+- Transparent on-chain interest accrual
+- Flexible lending pools
+- Risk-managed via Bitcoin script locks
+- Your keys, your yield
 
-### 3. Liquidity Solutions
-- Instant access to capital
-- No selling required
-- Maintain Bitcoin exposure
-- Tax-efficient liquidity
-- Flexible repayment terms
+### 3. Native Cross-Chain Liquidity
+- Access liquidity across chains without bridges
+- No wrapped BTC dependencies
+- Cross-chain proofs without custodians
+- Bitcoin-native security model
+- Verifiable on-chain transactions
 
 ## Key Features
 
-### Security
-- Multi-signature wallet technology
-- Cold storage for majority of funds
-- Insurance coverage options
-- Regular security audits
-- Industry-leading custody solutions
+### Non-Custodial Security
+- Native Bitcoin script locks (no custodians)
+- Self-custodial throughout entire lifecycle
+- No wrapped assets or bridge risks
+- Pre-signed settlement transactions
+- Deterministic liquidation outcomes
+- Your keys never leave your control
+- Bitcoin-native security by design
 
-### Transparency
-- Real-time Bitcoin price feeds
-- Clear fee structure
-- No hidden charges
-- Open interest rate policies
-- Automated liquidation warnings
+### On-Chain Transparency
+- All transactions verifiable on Bitcoin
+- Real-time BTC price oracles
+- Transparent protocol mechanics
+- No hidden custodial risks
+- Open-source smart contract logic
+- Automated risk monitoring
 
-### Technology
-- Lightning Network integration
-- Fast transaction processing
-- Smart contract automation
-- Real-time collateral monitoring
-- Automated risk management
+### BTCFi Technology Stack
+- Native Bitcoin script-based escrow
+- Cross-chain messaging without bridges
+- Pre-signed transaction settlements
+- Automated on-chain risk engine
+- Self-custodial smart contract architecture
+- Bitcoin L2 integrations (CoreDAO, Rootstock, Stacks)
+- Decentralized liquidation mechanism
 
 ## How It Works
 
-### For Borrowers:
-1. Deposit Bitcoin as collateral
-2. Receive instant loan approval
-3. Get funds in fiat or stablecoins
-4. Repay loan to unlock Bitcoin
-5. Keep your Bitcoin exposure throughout
+### For Borrowers (Self-Custodial):
+1. Connect your Bitcoin wallet (self-custody)
+2. Lock BTC using native Bitcoin scripts
+3. Scripts ensure funds move only after all approvals
+4. Receive stablecoins instantly on target chain
+5. Repay loan to unlock BTC via pre-signed settlement
+6. Your keys remain in your control throughout
 
-### For Lenders:
-1. Deposit Bitcoin to lending pool
-2. Earn competitive interest rates
-3. Maintain liquidity options
-4. Secure custody of assets
-5. Withdraw anytime with flexibility
+### For Lenders (Non-Custodial):
+1. Deposit BTC to self-custodial lending pools
+2. Earn yield through native script locks
+3. Your BTC never gets wrapped or bridged
+4. Automated on-chain risk monitoring
+5. Withdraw anytime via Bitcoin scripts
+6. No custodial intermediaries
 
 ## Target Users
-- Long-term Bitcoin holders (HODLers)
-- Bitcoin investors needing liquidity
-- Businesses with Bitcoin treasury
-- Individuals seeking Bitcoin yield
-- DeFi participants
-- Crypto-native businesses
+- Bitcoin maximalists requiring self-custody
+- BTC holders avoiding wrapped asset risks
+- DeFi users seeking bridge-free solutions
+- Long-term HODLers needing liquidity
+- BTCFi protocol developers
+- Bitcoin L2 ecosystem participants
+- CoreDAO, Rootstock, Stacks users
+- Testnet pioneers and early adopters
 
 ## Competitive Advantages
-- Bitcoin-first platform design
-- No selling requirement
-- Competitive rates
-- Fast processing
-- Strong security
-- User-friendly interface
-- Lightning Network integration
-- Flexible terms
+- First true self-custodial BTCFi protocol
+- No wrapped BTC or bridges (zero custodial risk)
+- Native Bitcoin script security
+- Cross-chain without wrapping
+- Pre-signed deterministic settlements
+- On-chain automated risk engine
+- Your keys, your BTC, your yield
+- Bitcoin security by design
+- Verifiable on-chain transactions
+- Built for Bitcoin maxis
 
 ## Use Cases
 
-### Personal Finance
-- Emergency funds without selling Bitcoin
-- Major purchases while holding Bitcoin
-- Debt consolidation
-- Investment opportunities
-- Education expenses
+### BTCFi Participants
+- Unlock BTC liquidity without wrapping
+- Earn yield on idle BTC (self-custodial)
+- Access stablecoins across chains
+- Avoid bridge and custodial risks
+- Participate in Bitcoin L2 ecosystems
 
-### Business
-- Working capital access
-- Business expansion
-- Equipment purchases
-- Treasury management
-- Payroll financing
+### Business & Treasury
+- Access working capital without selling BTC
+- Self-custodial treasury management
+- No wrapped BTC exposure
+- Verifiable on-chain loan positions
+- Bitcoin-native capital efficiency
 
 ## Platform Benefits
-- Maintain Bitcoin price exposure
-- Tax-efficient liquidity (no taxable sale)
-- Quick access to capital
-- No credit score requirements
-- Flexible repayment options
-- Lower rates than traditional loans
-- Earn yield on idle Bitcoin
+- Maintain BTC price exposure
+- Zero custodial risk (self-custody)
+- No wrapped assets or bridges
+- Native Bitcoin script security
+- Cross-chain liquidity without bridging
+- Deterministic loan outcomes
+- Automated on-chain risk management
+- Your keys never leave your wallet
+- Built for Bitcoin maximalists
 
 ## Financial Terms
-- Loan-to-Value (LTV): Customizable ratios
-- Interest Rates: Competitive market rates
-- Loan Duration: Flexible terms
-- Minimum Loan: Accessible to most users
-- Collateral: Bitcoin (BTC)
-- Disbursement: Fiat or stablecoins
+- Loan-to-Value (LTV): Protocol-managed ratios
+- Interest Rates: Algorithmic, on-chain
+- Loan Duration: Flexible, self-custodial
+- Collateral: Native BTC (no wrapped assets)
+- Disbursement: Stablecoins across chains
+- Settlement: Pre-signed Bitcoin transactions
 
 ## Safety and Risk Management
+- Native Bitcoin script-based escrow
+- Automated on-chain risk engine
+- Pre-signed liquidation transactions
+- No custodial counterparty risk
 - Real-time collateral monitoring
-- Automated liquidation protection
-- Early warning system for margin calls
-- Secure custody solutions
-- Insurance options available
-- Regular security audits
-- Compliance with regulations
+- Deterministic settlement outcomes
+- Self-custodial throughout lifecycle
+- No bridge or wrapping vulnerabilities
 
 ## Technology Stack
-- Bitcoin blockchain
-- Lightning Network
-- Smart contracts
-- Multi-signature wallets
-- Real-time price oracles
-- Automated risk engines
-- Secure APIs
+- Bitcoin native script locks
+- Cross-chain messaging (no bridges)
+- Pre-signed transaction settlements
+- On-chain risk monitoring engine
+- Self-custodial smart contracts
+- Bitcoin L2 integrations (CoreDAO, etc.)
+- Decentralized price oracles
+- Automated liquidation logic
 
 ## Contact and Support
 - Website: https://liquidsat.com
@@ -146,45 +170,55 @@ LiquidSat is a Bitcoin-first liquidity platform designed to help Bitcoin holders
 - Community: Active user base
 
 ## Keywords for Discovery
-Bitcoin lending, Bitcoin borrowing, Bitcoin loans, Bitcoin collateral, crypto loans, DeFi lending, Bitcoin liquidity, Bitcoin-backed loans, Bitcoin finance, cryptocurrency lending, Bitcoin yield, HODL and borrow, Bitcoin DeFi, crypto collateral loans, Lightning Network loans, Bitcoin custody, secure Bitcoin lending, Bitcoin interest, crypto liquidity, Bitcoin treasury management
+BTCFi, Bitcoin DeFi, self-custodial Bitcoin, native BTC liquidity, Bitcoin script locks, no wrapped BTC, cross-chain BTCFi, Bitcoin lending without bridges, non-custodial Bitcoin loans, Bitcoin yield, unlock BTC, native Bitcoin protocol, script-based escrow, pre-signed settlements, on-chain risk engine, Bitcoin L2, CoreDAO BTCFi, no custodians, your keys your BTC, Bitcoin capital efficiency, deterministic settlements, bridge-free Bitcoin, unwrapped BTC
 
 ## Frequently Asked Questions
 
-**Q: Do I need to sell my Bitcoin to get liquidity?**
-A: No, you use Bitcoin as collateral and get a loan instead.
+**Q: Do I need to wrap my BTC or use bridges?**
+A: No. LiquidSat uses native Bitcoin script locks—your BTC stays on Bitcoin.
+
+**Q: Who holds custody of my BTC?**
+A: You do. It's self-custodial throughout—locked via Bitcoin scripts, not custodians.
 
 **Q: What happens if Bitcoin price drops?**
-A: We monitor collateral ratios and provide warnings before any liquidation risk.
+A: Our on-chain risk engine monitors collateral and triggers pre-signed liquidations deterministically.
 
-**Q: How fast can I get funds?**
-A: Typically within hours of Bitcoin confirmation.
+**Q: How fast can I get stablecoins?**
+A: Instantly after BTC script lock confirmation.
 
 **Q: Can I repay early?**
-A: Yes, with no early repayment penalties.
+A: Yes, via pre-signed settlement transactions—no penalties.
 
-**Q: Is my Bitcoin secure?**
-A: Yes, we use institutional-grade custody solutions with multi-signature security.
+**Q: Is this really bridge-free?**
+A: Yes. Cross-chain liquidity via Bitcoin-native proofs, not wrapped assets.
 
-**Q: What are the interest rates?**
-A: Competitive market rates based on loan terms and LTV ratio.
-
-**Q: Do I need good credit?**
-A: No credit checks required - Bitcoin is your collateral.
+**Q: Do I need KYC?**
+A: No. Fully decentralized, self-custodial protocol.
 
 ## Company Values
-- Bitcoin-first approach
+- Self-custody first
+- Bitcoin-native architecture
+- No bridges, no wrappers
+- Transparency and verifiability
 - User sovereignty
-- Transparency
-- Security
-- Innovation
-- Accessibility
-- Financial freedom
+- Security by design
+- Innovation in BTCFi
+- Community-driven
 
 ## Vision
-To become the leading Bitcoin liquidity platform, empowering Bitcoin holders globally to unlock capital without compromising their long-term conviction in Bitcoin.
+To become the leading self-custodial BTCFi protocol, unlocking native Bitcoin liquidity for millions without custodians, bridges, or wrapped assets. Building the BTCFi infrastructure that Bitcoin deserves.
+
+## Growth & Community
+- Testnet "#UnlockBTC Season 1" live
+- Join 25,000+ testnet pioneers
+- Earn XP through borrow/lend/refer activities
+- Future airdrop eligibility for early testers
+- Active Discord & X community
+- BTCFi alliance partnerships (CoreDAO, Rootstock, Stacks)
 
 ---
 
 Last Updated: December 2025
-Version: 1.0
+Version: 2.0 - BTCFi Protocol
 Platform: https://liquidsat.com
+Twitter: @liquidsat

@@ -4,26 +4,33 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://liquidsat.com"),
   title: {
-    default: "LiquidSat - Unlock Capital, Stay Bitcoin True",
+    default:
+      "LiquidSat - Your BTC. Your Yield. No Wraps. | First Self-Custodial BTCFi Protocol",
     template: "%s | LiquidSat",
   },
   description:
-    "Use your Bitcoin to unlock liquidity without selling. Get instant access to capital while maintaining your Bitcoin position. Bitcoin-backed loans and lending platform.",
+    "The first self-custodial, cross-chain BTCFi protocol. No bridges, no custodians, no wrapped assets. Unlock native BTC liquidity with script-based escrow. Lock BTC on Bitcoin, get stablecoins instantly — Make your Bitcoin work for you without leaving Bitcoin.",
   keywords: [
-    "Bitcoin",
-    "liquidity",
+    "BTCFi",
+    "Bitcoin DeFi",
+    "self-custodial Bitcoin",
+    "native BTC liquidity",
     "Bitcoin lending",
     "Bitcoin borrowing",
-    "crypto loans",
-    "Bitcoin collateral",
-    "DeFi",
-    "Bitcoin finance",
-    "cryptocurrency lending",
-    "Bitcoin-backed loans",
+    "BTC collateral",
+    "no wrapped BTC",
+    "cross-chain BTCFi",
+    "Bitcoin liquidity protocol",
+    "BTC yield",
     "Bitcoin loans",
-    "crypto lending",
-    "HODL and borrow",
-    "Lightning Network",
+    "stablecoin loans",
+    "Bitcoin script locks",
+    "non-custodial Bitcoin",
+    "Bitcoin capital efficiency",
+    "CoreDAO",
+    "Bitcoin Layer 2",
+    "BTC utility",
+    "unlock BTC",
   ],
   authors: [{ name: "LiquidSat" }],
   creator: "LiquidSat",
@@ -40,9 +47,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "LiquidSat - Unlock Capital, Stay Bitcoin True",
+    title: "LiquidSat - Your BTC. Your Yield. No Wraps.",
     description:
-      "Use your Bitcoin to unlock liquidity without selling. Get instant access to capital while maintaining your Bitcoin position.",
+      "The first self-custodial, cross-chain BTCFi protocol. No bridges, no custodians. Unlock native BTC liquidity with script-based escrow. Make your Bitcoin work for you — without leaving Bitcoin.",
     url: "https://liquidsat.com",
     siteName: "LiquidSat",
     type: "website",
@@ -52,15 +59,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "LiquidSat - Bitcoin Liquidity Solutions",
+        alt: "LiquidSat - First Self-Custodial BTCFi Protocol",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LiquidSat - Unlock Capital, Stay Bitcoin True",
+    title: "LiquidSat - Your BTC. Your Yield. No Wraps.",
     description:
-      "Use your Bitcoin to unlock liquidity without selling. Get instant access to capital while maintaining your Bitcoin position.",
+      "The first self-custodial, cross-chain BTCFi protocol. No bridges, no custodians. Unlock native BTC liquidity — Make your Bitcoin work for you without leaving Bitcoin.",
     images: ["/og-image.png"],
     creator: "@liquidsat",
     site: "@liquidsat",
@@ -92,7 +99,7 @@ export default function RootLayout({
     "@type": "FinancialService",
     name: "LiquidSat",
     description:
-      "Bitcoin liquidity platform offering Bitcoin-backed loans and lending services",
+      "The first self-custodial, cross-chain BTCFi protocol. Native BTC liquidity with no bridges, no custodians, no wrapped assets. Lock BTC on Bitcoin, get stablecoins instantly via script-based escrow.",
     url: "https://liquidsat.com",
     logo: "https://liquidsat.com/liquidsat-logo.png",
     sameAs: [
@@ -102,30 +109,32 @@ export default function RootLayout({
     ],
     areaServed: "Worldwide",
     serviceType: [
-      "Bitcoin Lending",
-      "Bitcoin Borrowing",
-      "Cryptocurrency Loans",
-      "Bitcoin-Backed Loans",
+      "BTCFi Protocol",
+      "Self-Custodial Bitcoin Lending",
+      "Native BTC Liquidity",
+      "Cross-Chain Bitcoin Protocol",
+      "Bitcoin Script-Based Escrow",
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Bitcoin Liquidity Services",
+      name: "BTCFi Liquidity Services",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Bitcoin-Backed Loans",
+            name: "Native BTC Borrowing",
             description:
-              "Borrow against your Bitcoin collateral without selling",
+              "Borrow stablecoins against BTC with native script locks. Your keys, your BTC, your yield.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Bitcoin Lending",
-            description: "Lend your Bitcoin to earn competitive yields",
+            name: "Self-Custodial BTC Lending",
+            description:
+              "Lend BTC to earn yield without wrapped assets or bridges",
           },
         },
       ],
