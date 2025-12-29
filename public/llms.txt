@@ -1,0 +1,32 @@
+# LiquidSat - Bitcoin Liquidity Platform
+
+## About
+LiquidSat is a Bitcoin liquidity platform that allows users to unlock capital from their Bitcoin holdings without selling. We provide Bitcoin-backed loans and lending services.
+
+## Main Features
+- Bitcoin-backed loans
+- Instant liquidity access
+- Competitive interest rates
+- No selling required
+- Secure Bitcoin custody
+- Flexible loan terms
+
+## Use Cases
+- Access liquidity while maintaining Bitcoin position
+- Borrow against Bitcoin collateral
+- Lend Bitcoin to earn yield
+- Unlock capital for business or personal needs
+
+## Key Information
+- Platform: Bitcoin DeFi
+- Service: Bitcoin lending and borrowing
+- Website: https://liquidsat.com
+- Focus: Bitcoin liquidity solutions
+
+## Technology
+- Lightning Network integration
+- Secure multi-signature custody
+- Real-time Bitcoin price feeds
+- Automated liquidation protection
+
+> For detailed documentation, visit https://liquidsat.com/llms-full.txt
