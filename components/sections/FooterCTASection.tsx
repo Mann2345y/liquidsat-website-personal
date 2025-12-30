@@ -223,64 +223,6 @@ export const FooterCTASection = (): JSX.Element => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center gap-12 px-10 py-14 w-full max-w-[1390px] mx-auto">
-        {/* Text Content */}
-        <div className="flex flex-col items-center gap-[22px]">
-          <h2
-            className="text-white text-center"
-            style={{
-              fontFamily: "SF Pro Display",
-              fontWeight: 500,
-              fontSize: "40px",
-              lineHeight: "46px",
-              letterSpacing: "-0.4px",
-              maxWidth: "812px",
-            }}
-          >
-            Your Bitcoin. Your Yield. Your Control.
-            <br />
-            Join the Movement for Trustless Bitcoin Liquidity
-          </h2>
-          <p
-            className="text-white text-center"
-            style={{
-              fontFamily: "SF Pro",
-              fontWeight: 400,
-              fontSize: "24px",
-              lineHeight: "29px",
-              letterSpacing: "-0.4px",
-              maxWidth: "446px",
-            }}
-          >
-            Borrow, lend, and earn - natively and securely.
-            <br />
-            No bridges. No wrapping. No middlemen.
-          </p>
-        </div>
-
-        {/* CTA Button */}
-        <button
-          onClick={() => window.open("https://app.liquidsat.com/", "_blank")}
-          className="flex flex-row justify-center items-center px-4 py-3.5 rounded-[30px]"
-          style={{
-            background:
-              "linear-gradient(104.37deg, #FB923C -6.75%, #F96A27 89.65%)",
-            boxShadow: "inset 0px 2px 2px rgba(0, 0, 0, 0.25)",
-          }}
-        >
-          <span
-            className="text-white"
-            style={{
-              fontFamily: "SF Pro",
-              fontWeight: 590,
-              fontSize: "16px",
-              lineHeight: "20px",
-            }}
-          >
-            Join Waitlist
-          </span>
-        </button>
-      </div>
     </section>
   );
 };

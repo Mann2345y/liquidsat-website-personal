@@ -81,7 +81,7 @@ export const BorrowLendSection = (): JSX.Element => {
                 letterSpacing: "-0.4px",
               }}
             >
-              Borrow or Lend - Two Simple Ways to Use LiquidSat
+              Two Ways to Access Bitcoin-Backed Liquidity — Fully Non-Custodial
             </h2>
 
             {/* Right Description + Button */}
@@ -101,8 +101,8 @@ export const BorrowLendSection = (): JSX.Element => {
                   letterSpacing: "-0.4px",
                 }}
               >
-                From advanced tools to seamless navigation, we&apos;ve designed
-                everything to elevate your Bitcoin experience.
+                Access instant fixed-rate liquidity through BTC financing pools,
+                or create personalized peer-to-peer loan terms.
               </p>
               <button
                 className="flex flex-row justify-center items-center rounded-[30px]"
@@ -244,7 +244,7 @@ export const BorrowLendSection = (): JSX.Element => {
                   lineHeight: "1.17",
                 }}
               >
-                Access Liquidity Without Selling Your Bitcoin
+                Access Bitcoin-backed liquidity without selling or wrapping
               </h2>
               <p
                 className="text-white text-center text-base sm:text-lg md:text-xl"
@@ -255,8 +255,8 @@ export const BorrowLendSection = (): JSX.Element => {
                   letterSpacing: "-0.4px",
                 }}
               >
-                Lock BTC on Bitcoin, get stablecoins instantly, and stay in
-                control from start to finish.
+                Get stablecoins instantly by locking BTC on Bitcoin — with full
+                ownership, full control, and zero custody risk.
               </p>
             </div>
           </div>

@@ -7,7 +7,7 @@ export const FeaturesSection = (): JSX.Element => {
 
   const features = [
     {
-      title: "Self-Custodial Security",
+      title: "Self-Custodial by Design",
       icon: (
         <svg
           width="64"
@@ -42,7 +42,7 @@ export const FeaturesSection = (): JSX.Element => {
         </svg>
       ),
       description:
-        "You maintain complete control of your Bitcoin at all times. Your keys, your coins—always.",
+        "Your BTC stays on Bitcoin, secured by native scripts. Stablecoins flow directly between lender and borrower — enabling true self-custodial Bitcoin financing.",
     },
     {
       title: "Bridge-Free Architecture",
@@ -103,10 +103,10 @@ export const FeaturesSection = (): JSX.Element => {
         </svg>
       ),
       description:
-        "No wrapped tokens or bridges required. Access liquidity directly without additional security risks.",
+        "No wrapped BTC. No synthetic assets. No bridge risks. All collateral handling is verifiable with native Bitcoin proofs.",
     },
     {
-      title: "Dual Lending Options",
+      title: "Dual Financing Models",
       icon: (
         <svg
           width="64"
@@ -146,10 +146,10 @@ export const FeaturesSection = (): JSX.Element => {
         </svg>
       ),
       description:
-        "Choose between stablecoin loans or Bitcoin-backed lending to match your specific needs.",
+        "Access instant fixed-rate liquidity through BTC financing pools, or create personalized peer-to-peer loan terms.",
     },
     {
-      title: "Non-Custodial Execution",
+      title: "Wallet-to-Wallet Execution",
       icon: (
         <svg
           width="64"
@@ -183,67 +183,7 @@ export const FeaturesSection = (): JSX.Element => {
         </svg>
       ),
       description:
-        "Smart contracts execute automatically without any intermediary ever holding your assets.",
-    },
-    {
-      title: "Cross-Chain Availability",
-      icon: (
-        <svg
-          width="64"
-          height="64"
-          viewBox="0 0 64 64"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="20"
-            cy="20"
-            r="6"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            fill="none"
-          />
-          <circle
-            cx="44"
-            cy="20"
-            r="6"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            fill="none"
-          />
-          <circle
-            cx="32"
-            cy="44"
-            r="6"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            fill="none"
-          />
-          <path
-            d="M24 24L29 39"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-          <path
-            d="M40 24L35 39"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-          <path
-            d="M26 20H38"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-          <circle cx="20" cy="20" r="2" fill="#F59E0B" />
-          <circle cx="44" cy="20" r="2" fill="#F59E0B" />
-          <circle cx="32" cy="44" r="2" fill="#F59E0B" />
-        </svg>
-      ),
-      description:
-        "Access liquidity across multiple blockchain networks while keeping your Bitcoin secure.",
+        "LiquidSat never holds user funds. All capital moves directly between wallets the moment a loan is matched.",
     },
   ];
 
@@ -280,7 +220,8 @@ export const FeaturesSection = (): JSX.Element => {
               letterSpacing: "-0.4px",
             }}
           >
-            The Simplest Way to Unlock Liquidity from Your Bitcoin
+            The Bitcoin Financing Layer — Unlock Liquidity Without Selling Your
+            BTC
           </h2>
           <p
             className="text-[#71717A] text-base sm:text-lg md:text-[18px]"
@@ -291,8 +232,9 @@ export const FeaturesSection = (): JSX.Element => {
               letterSpacing: "-0.4px",
             }}
           >
-            LiquidSat makes your BTC productive, without selling, wrapping, or
-            trusting intermediaries.
+            LiquidSat transforms your Bitcoin into usable liquidity across
+            chains — safely, instantly, and without ever compromising
+            self-custody.
           </p>
         </div>
 

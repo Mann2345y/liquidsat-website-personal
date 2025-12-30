@@ -4,33 +4,32 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://liquidsat.com"),
   title: {
-    default:
-      "LiquidSat - Your BTC. Your Yield. No Wraps. | First Self-Custodial BTCFi Protocol",
+    default: "LiquidSat | Non-Custodial Bitcoin Financing Layer",
     template: "%s | LiquidSat",
   },
   description:
-    "The first self-custodial, cross-chain BTCFi protocol. No bridges, no custodians, no wrapped assets. Unlock native BTC liquidity with script-based escrow. Lock BTC on Bitcoin, get stablecoins instantly — Make your Bitcoin work for you without leaving Bitcoin.",
+    "Unlock Bitcoin liquidity without selling, wrapping, or custody. LiquidSat is a non-custodial Bitcoin financing layer for DeFi, payments, and real-world use.",
   keywords: [
-    "BTCFi",
-    "Bitcoin DeFi",
+    "Bitcoin financing",
+    "non-custodial Bitcoin",
+    "BTC liquidity",
+    "Bitcoin financing layer",
     "self-custodial Bitcoin",
-    "native BTC liquidity",
     "Bitcoin lending",
     "Bitcoin borrowing",
     "BTC collateral",
     "no wrapped BTC",
-    "cross-chain BTCFi",
-    "Bitcoin liquidity protocol",
-    "BTC yield",
-    "Bitcoin loans",
-    "stablecoin loans",
+    "bridge-free Bitcoin",
+    "Bitcoin DeFi",
+    "native Bitcoin",
     "Bitcoin script locks",
-    "non-custodial Bitcoin",
+    "BTC-backed financing",
+    "peer-to-peer Bitcoin lending",
+    "Bitcoin yield",
+    "stablecoin loans",
+    "Bitcoin without custody",
     "Bitcoin capital efficiency",
-    "CoreDAO",
-    "Bitcoin Layer 2",
-    "BTC utility",
-    "unlock BTC",
+    "unlock BTC liquidity",
   ],
   authors: [{ name: "LiquidSat" }],
   creator: "LiquidSat",
@@ -47,9 +46,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "LiquidSat - Your BTC. Your Yield. No Wraps.",
+    title: "LiquidSat | Non-Custodial Bitcoin Financing Layer",
     description:
-      "The first self-custodial, cross-chain BTCFi protocol. No bridges, no custodians. Unlock native BTC liquidity with script-based escrow. Make your Bitcoin work for you — without leaving Bitcoin.",
+      "Unlock Bitcoin liquidity without selling, wrapping, or custody. A Non-custodial Bitcoin financing layer for DeFi, payments, and real-world use.",
     url: "https://liquidsat.com",
     siteName: "LiquidSat",
     type: "website",
@@ -59,18 +58,18 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "LiquidSat - First Self-Custodial BTCFi Protocol",
+        alt: "LiquidSat - Non-Custodial Bitcoin Financing Layer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LiquidSat - Your BTC. Your Yield. No Wraps.",
+    title: "LiquidSat | Bitcoin Financing, Reimagined",
     description:
-      "The first self-custodial, cross-chain BTCFi protocol. No bridges, no custodians. Unlock native BTC liquidity — Make your Bitcoin work for you without leaving Bitcoin.",
+      "Turn Bitcoin into usable liquidity without custody, wrapping, or bridges. Non-custodial Bitcoin financing across chains.",
     images: ["/og-image.png"],
-    creator: "@liquidsat",
-    site: "@liquidsat",
+    creator: "@liquidsat_",
+    site: "@liquidsat_",
   },
   icons: {
     icon: "/favicon.png",
@@ -94,51 +93,102 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // Structured data for SEO
-  const structuredData = {
+  const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "FinancialService",
+    "@type": "Organization",
     name: "LiquidSat",
-    description:
-      "The first self-custodial, cross-chain BTCFi protocol. Native BTC liquidity with no bridges, no custodians, no wrapped assets. Lock BTC on Bitcoin, get stablecoins instantly via script-based escrow.",
     url: "https://liquidsat.com",
-    logo: "https://liquidsat.com/liquidsat-logo.png",
-    sameAs: [
-      // Add your social media URLs here when available
-      // "https://twitter.com/liquidsat",
-      // "https://linkedin.com/company/liquidsat",
-    ],
-    areaServed: "Worldwide",
-    serviceType: [
-      "BTCFi Protocol",
-      "Self-Custodial Bitcoin Lending",
-      "Native BTC Liquidity",
-      "Cross-Chain Bitcoin Protocol",
-      "Bitcoin Script-Based Escrow",
-    ],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "BTCFi Liquidity Services",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Native BTC Borrowing",
-            description:
-              "Borrow stablecoins against BTC with native script locks. Your keys, your BTC, your yield.",
-          },
+    logo: "https://liquidsat.com/logo.png",
+    sameAs: ["https://x.com/liquidsat_", "https://discord.gg/liquidsat"],
+    description:
+      "LiquidSat is a non-custodial Bitcoin financing layer that enables BTC-backed liquidity and financial utility without wrapping, custody, or bridges.",
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is LiquidSat?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "LiquidSat is a self-custodial Bitcoin financing layer that allows BTC holders to unlock liquidity and financial utility across chains without wrapping, custody, or bridges.",
         },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Self-Custodial BTC Lending",
-            description:
-              "Lend BTC to earn yield without wrapped assets or bridges",
-          },
+      },
+      {
+        "@type": "Question",
+        name: "How is LiquidSat different from traditional Bitcoin lending platforms?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "LiquidSat does not custody funds, wrap BTC, or rely on intermediaries. Bitcoin remains secured on Bitcoin via script-based collateral, while liquidity moves directly between wallets at settlement.",
         },
-      ],
-    },
+      },
+      {
+        "@type": "Question",
+        name: "Is LiquidSat a lending protocol or a financing platform?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "LiquidSat is a Bitcoin financing platform. Borrowing and lending are the first applications built on top of its non-custodial BTC collateral and settlement engine.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does LiquidSat use wrapped BTC, bridges, or synthetic assets?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No. LiquidSat does not use wrapped BTC, bridges, or synthetic assets. All financing is secured using native Bitcoin scripts, typically through a multi-signature setup between counterparties.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How is Bitcoin secured during a loan or financing transaction?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Bitcoin is locked using script-based, deterministic conditions that pre-define repayment, expiry, or liquidation outcomes, ensuring trustless and predictable settlement.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is borrowing instant on LiquidSat?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. LiquidSat supports instant liquidity through pooled markets, as well as custom peer-to-peer financing options for negotiated terms.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How do lenders earn yield, and are funds ever held by LiquidSat?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Lenders earn yield by providing stablecoin liquidity secured by native Bitcoin collateral. Funds are never held by LiquidSat and move directly from lender wallets to borrower wallets at the time of loan matching.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What can LiquidSat be used for, and who is it built for?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "LiquidSat enables BTC-backed liquidity for DeFi, payments, RWAs, trading, investments, and real-world spending. It is built for long-term Bitcoin holders, developers, and institutions seeking non-custodial financing without selling BTC.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What happens if a loan is not repaid?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Loan outcomes are enforced by pre-defined, script-based settlement logic, including liquidation when conditions are met.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Why is non-custodial Bitcoin financing important?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Non-custodial Bitcoin financing removes counterparty, bridge, and custodial risks while preserving Bitcoin's core security and self-sovereignty guarantees.",
+        },
+      },
+    ],
   };
 
   return (
@@ -152,7 +202,13 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
       <body className="antialiased">{children}</body>

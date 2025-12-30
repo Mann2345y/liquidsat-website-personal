@@ -5,7 +5,7 @@ import React from "react";
 export const FooterSection = (): JSX.Element => {
   return (
     <footer
-      className="relative w-full overflow-hidden min-h-[525px] md:min-h-[450px]"
+      className="relative w-full overflow-hidden min-h-[525px] md:min-h-[550px]"
       style={{
         background: "#0F0F0F",
         borderRadius: "24px 24px 0px 0px",
@@ -430,10 +430,92 @@ export const FooterSection = (): JSX.Element => {
         }}
       >
         {/* HorizontalBorder */}
+
+        <div className="relative z-10 flex flex-col items-center gap-12 px-10 py-14 w-full max-w-[1390px] mx-auto">
+          {/* Text Content */}
+          <div className="flex flex-col items-center gap-[22px]">
+            <h2
+              className="text-white text-center"
+              style={{
+                fontFamily: "SF Pro Display",
+                fontWeight: 500,
+                fontSize: "40px",
+                lineHeight: "46px",
+                letterSpacing: "-0.4px",
+                maxWidth: "812px",
+              }}
+            >
+              Your Bitcoin. Your Liquidity. Your Financial Power.
+            </h2>
+            <p
+              className="text-white text-center"
+              style={{
+                fontFamily: "SF Pro",
+                fontWeight: 400,
+                fontSize: "24px",
+                lineHeight: "29px",
+                letterSpacing: "-0.4px",
+                maxWidth: "600px",
+              }}
+            >
+              Borrow, trade, and earn with Bitcoin — without giving up custody,
+              relying on wrapped assets, or trusting bridges.
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <button
+              onClick={() =>
+                window.open("https://app.liquidsat.com/", "_blank")
+              }
+              className="flex flex-row justify-center items-center px-6 py-3.5 rounded-[30px]"
+              style={{
+                background:
+                  "linear-gradient(104.37deg, #FB923C -6.75%, #F96A27 89.65%)",
+                boxShadow: "inset 0px 2px 2px rgba(0, 0, 0, 0.25)",
+              }}
+            >
+              <span
+                className="text-white"
+                style={{
+                  fontFamily: "SF Pro",
+                  fontWeight: 590,
+                  fontSize: "16px",
+                  lineHeight: "20px",
+                }}
+              >
+                Launch App
+              </span>
+            </button>
+            <button
+              onClick={() =>
+                window.open("https://testnet.liquidsat.com/", "_blank")
+              }
+              className="flex flex-row justify-center items-center px-6 py-3.5 rounded-[30px]"
+              style={{
+                background: "rgba(245, 245, 237, 0.1)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+              }}
+            >
+              <span
+                className="text-white"
+                style={{
+                  fontFamily: "SF Pro",
+                  fontWeight: 590,
+                  fontSize: "16px",
+                  lineHeight: "20px",
+                }}
+              >
+                Join Testnet
+              </span>
+            </button>
+          </div>
+        </div>
+
         <div
-          className="absolute left-4 sm:left-8 md:left-[98px] right-4 sm:right-8 md:right-[98px] hidden sm:block"
+          className="w-full hidden sm:block"
           style={{
-            minHeight: "178px",
             top: "0px",
             borderTop: "1px dashed rgba(255, 255, 255, 0.12)",
           }}
@@ -578,74 +660,6 @@ export const FooterSection = (): JSX.Element => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Content - CTA Section */}
-      <div
-        className="absolute flex flex-col items-center gap-8 sm:gap-12 left-4 sm:left-6 md:left-10 right-4 sm:right-6 md:right-10 px-4"
-        style={{
-          top: "32px",
-        }}
-      >
-        {/* Text */}
-        <div
-          className="flex flex-col items-center w-full"
-          style={{
-            gap: "16px",
-          }}
-        >
-          {/* Heading */}
-          <h2
-            className="text-white text-center text-xl sm:text-2xl md:text-3xl"
-            style={{
-              fontFamily: "SF Pro Display",
-              fontWeight: 500,
-              lineHeight: "1.17",
-              letterSpacing: "-0.4px",
-            }}
-          >
-            Your Bitcoin. Your Yield. Your Control.
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>
-            Join the Movement for Trustless Bitcoin Liquidity
-          </h2>
-
-          {/* Description */}
-          <p
-            className="text-white text-center text-sm sm:text-base md:text-lg"
-            style={{
-              fontFamily: "SF Pro",
-              fontWeight: 400,
-              lineHeight: "1.3",
-              letterSpacing: "-0.4px",
-            }}
-          >
-            Borrow, lend, and earn - natively and securely.
-            <br />
-            No bridges. No wrapping. No middlemen.
-          </p>
-        </div>
-
-        {/* Frame 77 - Join Waitlist Button */}
-        <button
-          onClick={() => window.open("https://app.liquidsat.com/", "_blank")}
-          className="flex flex-row justify-center items-center text-white"
-          style={{
-            padding: "14px 16px",
-            width: "129px",
-            height: "48px",
-            background:
-              "linear-gradient(104.37deg, #FB923C -6.75%, #F96A27 89.65%)",
-            boxShadow: "inset 0px 2px 2px rgba(0, 0, 0, 0.25)",
-            borderRadius: "30px",
-            fontFamily: "SF Pro",
-            fontWeight: 590,
-            fontSize: "14px",
-            lineHeight: "18px",
-          }}
-        >
-          Join Waitlist
-        </button>
       </div>
     </footer>
   );

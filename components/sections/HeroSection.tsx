@@ -53,17 +53,6 @@ export const HeroSection = (): JSX.Element => {
                 >
                   Docs
                 </a>
-                <a
-                  href="#whitepaper"
-                  className="text-white/65 hover:text-white transition-colors text-sm sm:text-base"
-                  style={{
-                    fontFamily: "SF Pro",
-                    fontWeight: 500,
-                    letterSpacing: "-0.15px",
-                  }}
-                >
-                  Whitepaper
-                </a>
               </div>
             </div>
 
@@ -102,7 +91,9 @@ export const HeroSection = (): JSX.Element => {
             color: "#27272A",
           }}
         >
-          Put Your Bitcoin to Work Safely
+          Native Bitcoin Financing, Reimagined
+          <br />
+          Self-Custodial, Instant, and Bridge-Free
         </h1>
 
         {/* Subtitle */}
@@ -117,11 +108,11 @@ export const HeroSection = (): JSX.Element => {
               color: "#71717A",
             }}
           >
-            Borrow stablecoins or earn yield on your Bitcoin - No Custodian, No
-            Wrapping
+            Borrow stablecoins or earn yield with your Bitcoin — without
+            wrapping, giving up custody, or relying on intermediaries.
           </p>
           <p
-            className="text-center text-base sm:text-lg md:text-xl"
+            className="text-center text-base sm:text-lg md:text-xl max-w-4xl"
             style={{
               fontFamily: "SF Pro",
               fontWeight: 500,
@@ -130,7 +121,9 @@ export const HeroSection = (): JSX.Element => {
               color: "#71717A",
             }}
           >
-            100% non-custodial, secure, and multi-chain
+            19.9 million BTC lie idle. LiquidSat turns native Bitcoin into a
+            productive financial asset — enabling secure, bridge-free liquidity
+            for the entire crypto ecosystem.
           </p>
         </div>
 
@@ -148,7 +141,7 @@ export const HeroSection = (): JSX.Element => {
               color: "#27272A",
             }}
           >
-            Join Waitlist
+            Join Waitlist →
           </button>
 
           {/* Launch App Button */}
@@ -168,20 +161,8 @@ export const HeroSection = (): JSX.Element => {
         </div>
       </div>
 
-      {/* Bottom Text */}
-      <p
-        className="text-center max-w-[1181px] mx-auto px-4 pb-8 sm:pb-12 text-sm sm:text-base md:text-lg"
-        style={{
-          fontFamily: "SF Pro",
-          fontWeight: 400,
-          lineHeight: "1.4",
-          letterSpacing: "-0.4px",
-          color: "#71717A",
-        }}
-      >
-        19.9 Million BTC Lie Idle — Let&apos;s Change That by brings liquidity
-        to native Bitcoin — bridging ecosystems without bridges.
-      </p>
+      {/* Bottom Text - Hidden, content moved to subtitle */}
+      <div className="pb-8 sm:pb-12" />
     </section>
   );
 };

@@ -6,12 +6,59 @@ export const FAQSection = (): JSX.Element => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqItems = [
-    { question: "Restrictions (Please read)" },
-    { question: "How can I get started?" },
-    { question: "What services do you offer?" },
-    { question: "How long does it take?" },
-    { question: "Do you offer support?" },
-    { question: "What tools do you use?" },
+    {
+      question: "What is LiquidSat?",
+      answer:
+        "LiquidSat is a non-custodial Bitcoin financing layer that allows BTC holders to unlock liquidity and financial utility across chains without wrapping, custody, or bridges.",
+    },
+    {
+      question:
+        "How is LiquidSat different from traditional Bitcoin lending platforms?",
+      answer:
+        "LiquidSat does not custody funds, wrap BTC, or rely on intermediaries. Bitcoin remains secured on Bitcoin via script-based collateral, while liquidity moves directly between wallets at settlement.",
+    },
+    {
+      question: "Is LiquidSat a lending protocol or a financing platform?",
+      answer:
+        "LiquidSat is a Bitcoin financing platform. Borrowing and lending are the first applications built on top of its non-custodial BTC collateral and settlement engine.",
+    },
+    {
+      question: "Does LiquidSat use wrapped BTC, bridges, or synthetic assets?",
+      answer:
+        "No. LiquidSat does not use wrapped BTC, bridges, or synthetic assets. All financing is secured using native Bitcoin scripts, typically through a multi-signature setup between counterparties.",
+    },
+    {
+      question:
+        "How is Bitcoin secured during a loan or financing transaction?",
+      answer:
+        "Bitcoin is locked using script-based, deterministic conditions that pre-define repayment, expiry, or liquidation outcomes, ensuring trustless and predictable settlement.",
+    },
+    {
+      question: "Is borrowing instant on LiquidSat?",
+      answer:
+        "Yes. LiquidSat supports instant liquidity through pooled markets, as well as custom peer-to-peer financing options for negotiated terms.",
+    },
+    {
+      question:
+        "How do lenders earn yield, and are funds ever held by LiquidSat?",
+      answer:
+        "Lenders earn yield by providing stablecoin liquidity secured by native Bitcoin collateral. Funds are never held by LiquidSat and move directly from lender wallets to borrower wallets at the time of loan matching.",
+    },
+    {
+      question: "What can LiquidSat be used for, and who is it built for?",
+      answer:
+        "LiquidSat enables BTC-backed liquidity for DeFi, payments, RWAs, trading, investments, and real-world spending. It is built for long-term Bitcoin holders, developers, and institutions seeking non-custodial financing without selling BTC.",
+    },
+    {
+      question: "What happens if a loan is not repaid?",
+      answer:
+        "Loan outcomes are enforced by pre-defined, script-based settlement logic, including liquidation when conditions are met.",
+    },
+    {
+      question: "Why is non-custodial Bitcoin financing important?",
+      answer:
+        "Non-custodial Bitcoin financing removes counterparty, bridge, and custodial risks while preserving Bitcoin's core security and self-sovereignty guarantees.",
+    },
   ];
 
   return (
@@ -88,16 +135,17 @@ export const FAQSection = (): JSX.Element => {
           }}
         >
           {faqItems.map((item, index) => (
-            <button
+            <div
               key={index}
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              className="flex flex-col items-start px-4 sm:px-6 md:px-8 w-full rounded-[12px] sm:rounded-[20px] bg-white transition-all relative"
+              className="flex flex-col items-start w-full rounded-[12px] sm:rounded-[20px] bg-white transition-all"
               style={{
-                height: "auto",
                 minHeight: "56px",
               }}
             >
-              <div className="flex flex-row items-center justify-between py-4 sm:py-5 pr-4 sm:pr-10 w-full">
+              <button
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                className="flex flex-row items-center justify-between py-4 sm:py-5 px-4 sm:px-6 md:px-8 w-full"
+              >
                 <span
                   className="text-black text-left flex-1 text-sm sm:text-base md:text-lg"
                   style={{
@@ -110,7 +158,7 @@ export const FAQSection = (): JSX.Element => {
                   {item.question}
                 </span>
 
-                {/* Plus Icon */}
+                {/* Plus/Minus Icon */}
                 <div className="relative w-4 h-4 opacity-30 flex-shrink-0 ml-2 sm:ml-4">
                   {/* Horizontal bar */}
                   <div
@@ -135,8 +183,30 @@ export const FAQSection = (): JSX.Element => {
                     />
                   )}
                 </div>
-              </div>
-            </button>
+              </button>
+
+              {/* Answer - Expandable */}
+              {openIndex === index && (
+                <div
+                  className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-5 transition-all"
+                  style={{
+                    animation: "fadeIn 0.3s ease-in-out",
+                  }}
+                >
+                  <p
+                    className="text-[#71717A] text-sm sm:text-base"
+                    style={{
+                      fontFamily: "SF Pro",
+                      fontWeight: 400,
+                      lineHeight: "1.5",
+                      letterSpacing: "-0.2px",
+                    }}
+                  >
+                    {item.answer}
+                  </p>
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>

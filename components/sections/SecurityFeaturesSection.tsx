@@ -31,6 +31,8 @@ export const SecurityFeaturesSection = (): JSX.Element => {
             Non-Custodial by Default.
             <br />
             Bitcoin Security by Design.
+            <br />
+            Infrastructure for BTC-Backed Finance.
           </h2>
 
           {/* Right Description + Button */}
@@ -44,8 +46,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                 letterSpacing: "-0.4px",
               }}
             >
-              Every transaction is verifiable; powered by Bitcoin scripts, not
-              bridges.
+              Every BTC lock, proof, and settlement is executed through native Bitcoin scripts — not wrapped assets or bridge custodians.
             </p>
             <button
               className="flex flex-row justify-center items-center px-4 py-3.5 rounded-[30px]"
@@ -63,7 +64,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                   lineHeight: "18px",
                 }}
               >
-                Read WhitePaper
+                Read Security Paper
               </span>
             </button>
           </div>
@@ -105,7 +106,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                   letterSpacing: "-0.4px",
                 }}
               >
-                Native Script Locks
+                Native Script Escrow
               </h3>
               <p
                 className="text-[#71717A] text-sm"
@@ -116,9 +117,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                   letterSpacing: "-0.136082px",
                 }}
               >
-                No wrapped assets or bridges. BTC locked natively using
-                script-based escrow. Funds move only after approvals and BTC
-                lock.
+                Your BTC stays secured on Bitcoin through script-level controls — the foundation of self-custodial Bitcoin financing.
               </p>
             </div>
 
@@ -159,7 +158,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                   letterSpacing: "-0.4px",
                 }}
               >
-                On-Chain Risk Engine
+                On-Chain Risk & Automation
               </h3>
               <p
                 className="text-[#71717A] text-sm"
@@ -170,8 +169,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                   letterSpacing: "-0.136082px",
                 }}
               >
-                Automated monitoring & liquidation. Cancel or reclaim funds if
-                loan steps aren&apos;t completed.
+                Real-time collateral checks, automatic cancellation, and deterministic expiry logic.
               </p>
             </div>
 
@@ -224,8 +222,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                   letterSpacing: "-0.136082px",
                 }}
               >
-                Deterministic outcomes for every loan. Cross-chain proofs
-                without wrapped assets
+                Guaranteed outcomes for every financing agreement, verified by cross-chain proofs.
               </p>
             </div>
 
