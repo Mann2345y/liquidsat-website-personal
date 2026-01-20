@@ -1,9 +1,37 @@
-import { FAQSection } from "@/components/sections/FAQSection";
-import { FeaturesSection } from "@/components/sections/FeaturesSection";
-import { BorrowLendSection } from "@/components/sections/BorrowLendSection";
-import { SecurityFeaturesSection } from "@/components/sections/SecurityFeaturesSection";
-import { FooterSection } from "@/components/sections/FooterSection";
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { FeaturesSection } from "@/components/sections/FeaturesSection";
+
+// Lazy load below-the-fold components
+const BorrowLendSection = dynamic(
+  () =>
+    import("@/components/sections/BorrowLendSection").then(
+      (mod) => mod.BorrowLendSection
+    ),
+  { ssr: true }
+);
+
+const SecurityFeaturesSection = dynamic(
+  () =>
+    import("@/components/sections/SecurityFeaturesSection").then(
+      (mod) => mod.SecurityFeaturesSection
+    ),
+  { ssr: true }
+);
+
+const FAQSection = dynamic(
+  () =>
+    import("@/components/sections/FAQSection").then((mod) => mod.FAQSection),
+  { ssr: true }
+);
+
+const FooterSection = dynamic(
+  () =>
+    import("@/components/sections/FooterSection").then(
+      (mod) => mod.FooterSection
+    ),
+  { ssr: true }
+);
 
 export default function Home() {
   return (
