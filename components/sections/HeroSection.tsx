@@ -1,57 +1,175 @@
 "use client";
 
 import React from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
+import { useBreakpoint, BreakpointType } from "../../hooks/use-breakpoint";
+import SequenceAnimation, { SequenceConfig } from "../hero/SequenceAnimation";
+import styles from "../hero/hero.module.css";
 
 export const HeroSection = (): JSX.Element => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { isMobile } = useBreakpoint();
+  const [refsReady, setRefsReady] = useState(false);
+
+  // Ensure refs are ready before mounting animation
+  useEffect(() => {
+    // Check if refs are available after mount
+    const checkRefs = () => {
+      if (!isMobile && timelineRef.current && canvasRef.current) {
+        setRefsReady(true);
+      }
+    };
+    
+    // Check immediately and after a short delay to ensure DOM is ready
+    checkRefs();
+    const timeout = setTimeout(checkRefs, 100);
+    
+    return () => clearTimeout(timeout);
+  }, [isMobile]);
+
+  // Sequence configuration - using 12 frames (temporary, will be updated to 30 later)
+  // The frames are now in desktop-30 folder, numbered 001-012
+  // 12 frames / 1.8 seconds = ~6.7fps playback
+  const sequenceConfig: SequenceConfig = {
+    loopConfig: {
+      loopDuration: 1.8, // 12 frames at ~6.7fps = 1.8 seconds
+      framesPerLoop: 12,
+      transitionStartScrollOffset: 1,
+      loopStartFrame: 1,
+      loopEndFrame: 12,
+      transitionDuration: 0.4, // Smooth transition for playback
+    },
+    totalFrames: {
+      [BreakpointType.Desktop]: 12,
+      [BreakpointType.Tablet]: 12,
+      [BreakpointType.Mobile]: 12,
+    },
+    countPreloadFrames: 6, // Preload frames for smooth playback
+    framePath: '/desktop-30/frame_002.png',
+    // No frame mapper needed - frames are already 1-30 in the new folder
+  };
+
   return (
     <section
-      className="relative flex flex-col justify-between items-center min-h-screen overflow-hidden"
+      ref={sectionRef}
+      className="relative overflow-hidden"
       style={{
-        backgroundColor: "#F6F2EA",
-        backgroundImage: "url(/bgHero.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        width: '100%',
+        height: '100vh',
+        background: '#F7F1EA',
+        borderRadius: '0px 0px 32px 32px',
+        boxShadow: '0px 4px 8px 1px rgba(0, 0, 0, 0.15)',
       }}
     >
-      {/* Top Navigation Bar */}
+      {/* Timeline element for ScrollTrigger */}
+      <div ref={timelineRef} className={styles.timeline} />
+
+      {/* Static frame image - Animation disabled for testing */}
+      {!isMobile && (
+        <div
+          className="absolute"
+          style={{
+            top: 0,
+            left: '50%',
+            width: '100vw',
+            height: '100vh',
+            zIndex: 0,
+            transform: 'translateX(-50%)',
+            pointerEvents: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Image
+            src="/desktop-30/frame_001.png"
+            alt="Hero animation frame"
+            fill
+            className="object-cover w-screen h-screen"
+            priority
+          />
+        </div>
+      )}
+
+      {/* Bitcoin Image - Centered */}
+      <div
+        className="absolute z-10"
+        style={{
+          left: '50%',
+          top: '60%',
+          transform: 'translate(-50%, -50%)',
+          pointerEvents: 'none',
+        }}
+      >
+        <Image
+          src="/B Front.png"
+          alt="Bitcoin"
+          width={220}
+          height={220}
+          className="object-contain"
+
+        />
+      </div> 
+      {/* Top Navigation Bar - Absolute positioned at top */}
       <nav
-        className="flex justify-center items-center w-full pt-4 sm:pt-6 px-3 sm:px-4"
-        style={{ maxWidth: "440px", margin: "0 auto" }}
+        className="absolute z-10"
+        style={{
+          width: '440px',
+          height: '50px',
+          left: 'calc(50% - 440px/2)',
+          top: '23px',
+        }}
       >
         <div
-          className="flex justify-center items-center w-full rounded-full backdrop-blur-md"
+          className="flex justify-center items-center w-full h-full rounded-[72px] backdrop-blur-[6px]"
           style={{
             background: "#27272A",
             border: "1px solid #404040",
-            padding: "5px 12px 5px 12px",
+            padding: "5px 5px 5px 16px",
           }}
         >
-          <div className="flex justify-between items-center w-full">
+          <div className="flex justify-between items-center w-full px-5">
             {/* Logo & Nav Links */}
-            <div className="flex items-center gap-3 sm:gap-6 md:gap-9">
+            <div className="flex items-center gap-9">
               {/* Logo */}
               <Image
                 src="/logo.png"
                 alt="logo-image"
-                width={100}
-                height={32}
-                className="h-6 sm:h-8 w-auto object-contain"
+                width={36}
+                height={36}
+                className="object-contain"
               />
 
-              {/* Nav Links - hidden on smallest screens */}
-              <div className="hidden xs:flex items-center gap-3 sm:gap-5">
+              {/* Nav Links */}
+              <div className="flex items-center gap-5">
                 <a
                   href="#docs"
-                  className="text-white/65 hover:text-white transition-colors text-sm sm:text-base"
+                  className="text-white transition-colors"
                   style={{
                     fontFamily: "SF Pro",
-                    fontWeight: 500,
+                    fontWeight: 510,
+                    fontSize: "16px",
+                    lineHeight: "18px",
                     letterSpacing: "-0.15px",
                   }}
                 >
                   Docs
+                </a>
+                <a
+                  href="#whitepaper"
+                  className="text-white transition-colors"
+                  style={{
+                    fontFamily: "SF Pro",
+                    fontWeight: 510,
+                    fontSize: "16px",
+                    lineHeight: "18px",
+                    letterSpacing: "-0.15px",
+                  }}
+                >
+                  Whitepaper
                 </a>
               </div>
             </div>
@@ -61,14 +179,14 @@ export const HeroSection = (): JSX.Element => {
               onClick={() =>
                 window.open("https://app.liquidsat.com/", "_blank")
               }
-              className="flex justify-center items-center rounded-full px-2 sm:px-3 py-2 sm:py-2.5 text-white text-xs sm:text-base whitespace-nowrap"
+              className="flex justify-center items-center rounded-[30px] px-4 py-2.5 text-white whitespace-nowrap"
               style={{
-                background: "rgba(113, 113, 122, 0.35)",
-                boxShadow:
-                  "inset 0px -0.48175px 0.48175px -1.25px rgba(0, 0, 0, 0.68), inset 0px -1.83083px 1.83083px -2.5px rgba(0, 0, 0, 0.596), inset 0px -8px 8px -3.75px rgba(0, 0, 0, 0.235)",
-                border: "1px solid #292B2B",
+                background: "linear-gradient(100.23deg, rgba(254, 215, 170, 0.2) 22.17%, rgba(253, 186, 116, 0.2) 74.43%, rgba(251, 146, 60, 0.2) 100%)",
+                border: "1px solid #C5C5C5",
                 fontFamily: "SF Pro",
                 fontWeight: 590,
+                fontSize: "16px",
+                lineHeight: "20px",
                 letterSpacing: "-0.15px",
               }}
             >
@@ -78,82 +196,104 @@ export const HeroSection = (): JSX.Element => {
         </div>
       </nav>
 
-      {/* Hero Content */}
-      <div className="flex flex-col items-center gap-5 sm:gap-7 max-w-[1027px] mx-auto px-4">
-        {/* Main Heading */}
-        <h1
-          className="text-center text-3xl sm:text-4xl md:text-5xl"
-          style={{
-            fontFamily: "SF Pro Display",
-            fontWeight: 500,
-            lineHeight: "1.2",
-            letterSpacing: "-0.4px",
-            color: "#27272A",
-          }}
-        >
-          Native Bitcoin Financing, Reimagined
-          <br />
-          Self-Custodial, Instant, and Bridge-Free
-        </h1>
+      {/* Main Content - Positioned just below navigation header */}
+      <div 
+        className="absolute z-10 flex flex-col items-center gap-2"
+        style={{
+          width: '1027px',
+          maxWidth: '90%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '75px',
+          padding: '24px 0px',
+          gap: '42px',
+        }}
+      >
+        {/* Heading and Description Container */}
+        <div className="flex flex-col items-center gap-4 w-full">
+          {/* Main Heading */}
+          <h1
+            className="text-center w-full"
+            style={{
+              fontFamily: "SF Pro Display",
+              fontWeight: 500,
+              fontSize: "48px",
+              lineHeight: "72px",
+              letterSpacing: "-0.4px",
+              color: "#27272A",
+              margin: 0,
+            }}
+          >
+            Put Your Bitcoin to Work Safely
+          </h1>
 
-        {/* Subtitle */}
-        <div className="flex flex-col items-center gap-3 sm:gap-5">
-          <p
-            className="text-center text-base sm:text-lg md:text-xl"
-            style={{
-              fontFamily: "SF Pro",
-              fontWeight: 500,
-              lineHeight: "1.2",
-              letterSpacing: "-0.4px",
-              color: "#71717A",
-            }}
-          >
-            Borrow stablecoins or earn yield with your Bitcoin — without
-            wrapping, giving up custody, or relying on intermediaries.
-          </p>
-          <p
-            className="text-center text-base sm:text-lg md:text-xl max-w-4xl"
-            style={{
-              fontFamily: "SF Pro",
-              fontWeight: 500,
-              lineHeight: "1.2",
-              letterSpacing: "-0.4px",
-              color: "#71717A",
-            }}
-          >
-            19.9 million BTC lie idle. LiquidSat turns native Bitcoin into a
-            productive financial asset — enabling secure, bridge-free liquidity
-            for the entire crypto ecosystem.
-          </p>
+          {/* Description Lines */}
+          <div className="flex flex-col items-center gap-1 w-full">
+            <p
+              className="text-center w-full"
+              style={{
+                fontFamily: "SF Pro",
+                fontWeight: 400,
+                fontSize: "18px",
+                lineHeight: "16px",
+                letterSpacing: "-0.4px",
+                color: "#71717A",
+                margin: 0,
+              }}
+            >
+              Borrow stablecoins or earn yield on your Bitcoin - No Custodian, No Wrapping
+            </p>
+            <p
+              className="text-center w-full"
+              style={{
+                fontFamily: "SF Pro",
+                fontWeight: 400,
+                fontSize: "18px",
+                lineHeight: "16px",
+                letterSpacing: "-0.4px",
+                color: "#71717A",
+                margin: 0,
+              }}
+            >
+              100% non-custodial, secure, and multi-chain
+            </p>
+          </div>
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-7 mt-8 sm:mt-14 w-full sm:w-auto">
+        <div className="flex flex-row items-center gap-7">
           {/* Join Waitlist Button */}
           <button
             onClick={() => window.open("https://app.liquidsat.com/", "_blank")}
-            className="flex justify-center items-center rounded-[30px] px-4 py-3.5 text-sm sm:text-base w-full sm:w-auto"
+            className="flex justify-center items-center rounded-[30px]"
             style={{
+              width: '129px',
+              height: '48px',
               background: "#F5F5ED",
               border: "1px solid #C5C5C5",
               fontFamily: "SF Pro",
               fontWeight: 590,
+              fontSize: "16px",
+              lineHeight: "20px",
               color: "#27272A",
             }}
           >
-            Join Waitlist →
+            Join Waitlist
           </button>
 
           {/* Launch App Button */}
           <button
             onClick={() => window.open("https://app.liquidsat.com/", "_blank")}
-            className="flex justify-center items-center rounded-[30px] px-4 py-3.5 text-sm sm:text-base text-white w-full sm:w-auto"
+            className="flex justify-center items-center rounded-[30px] text-white"
             style={{
-              background:
-                "linear-gradient(104.37deg, #FB923C -6.75%, #F96A27 89.65%)",
+              width: '126px',
+              height: '48px',
+              background: "linear-gradient(104.37deg, #FB923C -6.75%, #F96A27 89.65%)",
               boxShadow: "inset 0px 2px 2px rgba(0, 0, 0, 0.25)",
               fontFamily: "SF Pro",
               fontWeight: 590,
+              fontSize: "16px",
+              lineHeight: "20px",
             }}
           >
             Launch App
@@ -161,8 +301,35 @@ export const HeroSection = (): JSX.Element => {
         </div>
       </div>
 
-      {/* Bottom Text - Hidden, content moved to subtitle */}
-      <div className="pb-8 sm:pb-12" />
+      {/* Bottom Description Text - Absolute positioned at bottom */}
+      <p
+        className="absolute z-10 text-center"
+        style={{
+          width: '862px',
+          maxWidth: '90%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          bottom: '20px',
+          fontFamily: "SF Pro",
+          fontWeight: 400,
+          fontSize: "16px",
+          lineHeight: "29px",
+          letterSpacing: "-0.4px",
+          color: "#71717A",
+          margin: 0,
+        }}
+      >
+        19.9 Million BTC Lie Idle — Let's Change That by brings liquidity to native Bitcoin — bridging ecosystems without bridges.
+      </p>
+
+      {/* Sequence animation controller - DISABLED FOR TESTING */}
+      {/* {!isMobile && refsReady && timelineRef.current && canvasRef.current && (
+        <SequenceAnimation
+          triggerElement={timelineRef.current}
+          canvasElement={canvasRef.current}
+          config={sequenceConfig}
+        />
+      )} */} 
     </section>
   );
 };
