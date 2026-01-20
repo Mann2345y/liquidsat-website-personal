@@ -1,56 +1,49 @@
 "use client";
 
 import React from "react";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-import { useBreakpoint, BreakpointType } from "../../hooks/use-breakpoint";
-import SequenceAnimation, { SequenceConfig } from "../hero/SequenceAnimation";
+import { useBreakpoint } from "../../hooks/use-breakpoint";
+// import SequenceAnimation, { SequenceConfig } from "../hero/SequenceAnimation"; // Disabled - animation not in use
 import styles from "../hero/hero.module.css";
 
 export const HeroSection = (): JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  // const canvasRef = useRef<HTMLCanvasElement>(null); // Disabled - animation not in use
   const { isMobile } = useBreakpoint();
-  const [refsReady, setRefsReady] = useState(false);
+  // const [refsReady, setRefsReady] = useState(false); // Disabled - animation not in use
 
-  // Ensure refs are ready before mounting animation
-  useEffect(() => {
-    // Check if refs are available after mount
-    const checkRefs = () => {
-      if (!isMobile && timelineRef.current && canvasRef.current) {
-        setRefsReady(true);
-      }
-    };
-    
-    // Check immediately and after a short delay to ensure DOM is ready
-    checkRefs();
-    const timeout = setTimeout(checkRefs, 100);
-    
-    return () => clearTimeout(timeout);
-  }, [isMobile]);
+  // Animation setup disabled - using static image instead
+  // useEffect(() => {
+  //   const checkRefs = () => {
+  //     if (!isMobile && timelineRef.current && canvasRef.current) {
+  //       setRefsReady(true);
+  //     }
+  //   };
+  //   checkRefs();
+  //   const timeout = setTimeout(checkRefs, 100);
+  //   return () => clearTimeout(timeout);
+  // }, [isMobile]);
 
-  // Sequence configuration - using 12 frames (temporary, will be updated to 30 later)
-  // The frames are now in desktop-30 folder, numbered 001-012
-  // 12 frames / 1.8 seconds = ~6.7fps playback
-  const sequenceConfig: SequenceConfig = {
-    loopConfig: {
-      loopDuration: 1.8, // 12 frames at ~6.7fps = 1.8 seconds
-      framesPerLoop: 12,
-      transitionStartScrollOffset: 1,
-      loopStartFrame: 1,
-      loopEndFrame: 12,
-      transitionDuration: 0.4, // Smooth transition for playback
-    },
-    totalFrames: {
-      [BreakpointType.Desktop]: 12,
-      [BreakpointType.Tablet]: 12,
-      [BreakpointType.Mobile]: 12,
-    },
-    countPreloadFrames: 6, // Preload frames for smooth playback
-    framePath: '/desktop-30/frame_002.png',
-    // No frame mapper needed - frames are already 1-30 in the new folder
-  };
+  // Sequence configuration - disabled (animation not in use)
+  // const sequenceConfig: SequenceConfig = {
+  //   loopConfig: {
+  //     loopDuration: 1.8,
+  //     framesPerLoop: 12,
+  //     transitionStartScrollOffset: 1,
+  //     loopStartFrame: 1,
+  //     loopEndFrame: 12,
+  //     transitionDuration: 0.4,
+  //   },
+  //   totalFrames: {
+  //     [BreakpointType.Desktop]: 12,
+  //     [BreakpointType.Tablet]: 12,
+  //     [BreakpointType.Mobile]: 12,
+  //   },
+  //   countPreloadFrames: 6,
+  //   framePath: '/desktop-30/frame_002.png',
+  // };
 
   return (
     <section
@@ -319,7 +312,7 @@ export const HeroSection = (): JSX.Element => {
           margin: 0,
         }}
       >
-        19.9 Million BTC Lie Idle — Let's Change That by brings liquidity to native Bitcoin — bridging ecosystems without bridges.
+        19.9 Million BTC Lie Idle — Let&apos;s Change That by brings liquidity to native Bitcoin — bridging ecosystems without bridges.
       </p>
 
       {/* Sequence animation controller - DISABLED FOR TESTING */}
