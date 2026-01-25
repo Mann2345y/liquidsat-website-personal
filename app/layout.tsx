@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap" });
@@ -75,8 +76,8 @@ export const metadata: Metadata = {
     site: "@liquidsat_",
   },
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favicon-32x32.png",
+    apple: "/favicon-32x32.png",
   },
   manifest: "/site.webmanifest",
   alternates: {
@@ -208,7 +209,21 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-1NJZMYTZQV"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1NJZMYTZQV');
+          `}
+        </Script>
+        {children}
+      </body>
     </html>
   );
 }

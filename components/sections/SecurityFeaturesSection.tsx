@@ -32,11 +32,10 @@ export const SecurityFeaturesSection = (): JSX.Element => {
             <br />
             Bitcoin Security by Design.
             <br />
-            Infrastructure for BTC-Backed Finance.
           </h2>
 
           {/* Right Description + Button */}
-          <div className="flex flex-col items-start gap-4 sm:gap-6 max-w-[403px] flex-1">
+          <div className="flex flex-col items-start gap-4 sm:gap-6 max-w-[500px] flex-1">
             <p
               className="text-[#71717A] text-base sm:text-lg md:text-xl"
               style={{
@@ -74,7 +73,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 w-full lg:grid-rows-1">
           {/* Card 1 - Native Script Locks */}
           <div
-            className="relative flex flex-col justify-start items-start p-6 sm:p-9 gap-6 sm:gap-8 rounded-[16px] sm:rounded-[20px] w- full h-full"
+            className="relative flex flex-col justify-start items-start p-6 sm:p-9 gap-6 sm:gap-8 rounded-[16px] sm:rounded-[20px] w-full h-full"
             style={{
               minHeight: "300px",
               background: "#FFFFFF",
@@ -126,7 +125,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
 
           {/* Cards 2 & 3 Container */}
           <div
-            className="relative flex flex-col justify-start items-start p-6 sm:p-9 gap-4 sm:gap-6 w-full h-full rounded-[16px] sm:round ed-[20px]"
+            className="relative flex flex-col justify-start items-start p-6 sm:p-9 gap-4 sm:gap-6 w-full h-full rounded-[16px] sm:rounded-[20px]"
             style={{
               minHeight: "300px",
               background: "#FFFFFF",
@@ -178,7 +177,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
 
           {/* Card 3 - Pre-Signed Settlements */}
           <div
-            className="relative flex flex-col justify-start items-start p-6 sm:p-9 gap-6 sm:gap-8 w-full h-full rounded-[16px] sm:rounded-[20px] overflow-hi  dden"
+            className="relative flex flex-col justify-start items-start p-6 sm:p-9 gap-6 sm:gap-8 w-full h-full rounded-[16px] sm:rounded-[20px] overflow-hidden"
             style={{
               minHeight: "300px",
               background: "#FFFFFF",

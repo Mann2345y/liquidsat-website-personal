@@ -245,63 +245,71 @@ export const FeaturesSection = (): JSX.Element => {
           {/* Left Column - Feature List */}
           <div className="flex flex-col items-start gap-1.5 w-full lg:max-w-[636px]">
             {features.map((feature, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveFeature(index)}
-                className={`
-                  flex flex-row items-center w-full h-[60px] sm:h-[72px] rounded-[12px] sm:rounded-[20px] px-4 sm:px-8 md:px-[42px] py-4 sm:py-6 
-                  transition-all duration-500 ease-in-out relative overflow-hidden
-                  ${
-                    activeFeature === index
-                      ? "bg-[#FAECCF] shadow-[inset_0px_4px_4px_rgba(0,0,0,0.1)]"
-                      : "bg-transparent hover:bg-[#F6F2EA]"
-                  }
-                `}
-                style={{
-                  fontFamily: "SF Pro",
-                  fontWeight: 400,
-                  lineHeight: "28px",
-                  letterSpacing: "-0.4px",
-                  color: activeFeature === index ? "#030303" : "#6C6E74",
-                }}
-              >
-                {/* Background mask effect for active item */}
-                {activeFeature === index && (
-                  <>
-                    <div
-                      className="absolute inset-0 pointer-events-none"
-                      style={{
-                        background:
-                          "radial-gradient(50% 50% at 50% 50%, #000000 25.47%, rgba(0, 0, 0, 0) 100%)",
-                        opacity: 0.03,
-                        mixBlendMode: "multiply",
-                      }}
-                    />
-                    <svg
-                      className="absolute left-0 top-0 h-full opacity-20"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      style={{ transform: "scale(1.5)" }}
-                    >
-                      <circle cx="10" cy="10" r="10" fill="#FFFFFF" />
-                    </svg>
-                  </>
+              <React.Fragment key={index}>
+                <button
+                  onClick={() => setActiveFeature(index)}
+                  className={`
+                    flex flex-row items-center w-full h-[60px] sm:h-[72px] rounded-[12px] sm:rounded-[20px] px-4 sm:px-8 md:px-[42px] py-4 sm:py-6 
+                    transition-all duration-500 ease-in-out relative overflow-hidden
+                    ${
+                      activeFeature === index
+                        ? "bg-[#FAECCF] shadow-[inset_0px_4px_4px_rgba(0,0,0,0.1)]"
+                        : "bg-transparent hover:bg-[#F6F2EA]"
+                    }
+                  `}
+                  style={{
+                    fontFamily: "SF Pro",
+                    fontWeight: 400,
+                    lineHeight: "28px",
+                    letterSpacing: "-0.4px",
+                    color: activeFeature === index ? "#030303" : "#6C6E74",
+                  }}
+                >
+                  {/* Background mask effect for active item */}
+                  {activeFeature === index && (
+                    <>
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          background:
+                            "radial-gradient(50% 50% at 50% 50%, #000000 25.47%, rgba(0, 0, 0, 0) 100%)",
+                          opacity: 0.03,
+                          mixBlendMode: "multiply",
+                        }}
+                      />
+                      <svg
+                        className="absolute left-0 top-0 h-full opacity-20"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        style={{ transform: "scale(1.5)" }}
+                      >
+                        <circle cx="10" cy="10" r="10" fill="#FFFFFF" />
+                      </svg>
+                    </>
+                  )}
+                  <span className="relative z-10 text-sm sm:text-base">
+                    {feature.title}
+                  </span>
+                </button>
+                {/* Separator between sections — always visible */}
+                {index < features.length - 1 && (
+                  <div
+                    className="h-px w-full flex-shrink-0"
+                    style={{ backgroundColor: "#E4E4E7" }}
+                    aria-hidden
+                  />
                 )}
-                <span className="relative z-10 text-sm sm:text-base">
-                  {feature.title}
-                </span>
-              </button>
+              </React.Fragment>
             ))}
           </div>
 
           {/* Right Column - Feature Display Card */}
           <div
-            className="relative flex flex-col justify-center items-center rounded-[12px] sm:rounded-[20px] overflow-hidden flex-1 w-full"
+            className="relative flex flex-col justify-center items-center rounded-[12px] sm:rounded-[20px] overflow-hidden flex-1 w-full min-w-0 p-4 sm:p-5 md:p-6"
             style={{
-              padding: "24px",
               isolation: "isolate",
-              minHeight: "300px",
+              minHeight: "280px",
               maxWidth: "100%",
               background:
                 "linear-gradient(225.7deg, #57432F 0%, #27272A 74.69%)",

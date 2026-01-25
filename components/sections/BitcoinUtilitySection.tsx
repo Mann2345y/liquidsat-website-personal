@@ -31,19 +31,16 @@ const TAGLINE =
 export const BitcoinUtilitySection = (): JSX.Element => {
   return (
     <section
-      className="relative flex flex-col items-center justify-center w-full overflow-hidden isolate"
+      className="relative flex flex-col items-center justify-center w-full overflow-hidden isolate px-4 pt-8 pb-12 sm:px-6 sm:pt-10 sm:pb-16 md:px-10 md:pt-12 md:pb-20 lg:px-12 lg:pt-[50px] lg:pb-[51px] gap-8 sm:gap-10 md:gap-12 lg:gap-[70px] min-h-[600px] sm:min-h-[750px] lg:min-h-[900px] xl:min-h-[1113px]"
       style={{
-        padding: "100px 48px 51px",
-        gap: "100px",
         background:
-          "radial-gradient(59.83% 45.47% at 53.54% 52.04%, #FBCC9B 36.45%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #F0F0E6 9%, rgba(240, 240, 230, 0) 85%)",
-        minHeight: "1113px",
+          "radial-gradient(ellipse 30% 40% at center, rgba(251, 204, 155, 1) 36%, rgba(251, 204, 155, 0) 100%), #F0F0E6",
       }}
     >
       {/* BG Image: mask-group — sits at top, z-index 0, behind heading */}
       <div
         className="absolute left-0 right-0 top-[1px] z-0 pointer-events-none"
-        style={{ height: 317 }}
+        style={{ height: 250 }}
       >
         {/* gradient image (or CSS fallback when asset missing) */}
         <div
@@ -51,7 +48,7 @@ export const BitcoinUtilitySection = (): JSX.Element => {
           style={{
             bottom: 36,
             background:
-              "url('/gradient-1761602001736.png') center / cover no-repeat, linear-gradient(180deg, rgba(251,204,155,0.5) 0%, transparent 100%)",
+              "linear-gradient(180deg, rgba(251,204,155,0.5) 0%, transparent 100%)",
           }}
         />
       </div>
@@ -73,13 +70,15 @@ export const BitcoinUtilitySection = (): JSX.Element => {
         </h2>
       </div>
 
-      {/* Mobile: tagline as block (blur behind text) */}
+      {/* Mobile: tagline with black overlay + orange glow */}
       <div className="relative flex lg:hidden justify-center items-center w-full max-w-[534px] mx-auto px-4 py-8">
+        {/* Light translucent black overlay+blur (Sigma) */}
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(90%,410px)] h-[100px] rounded-[888px]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(100%,380px)] h-[100px] sm:h-[120px] z-[1]"
           style={{
             background: "rgba(0, 0, 0, 0.12)",
             filter: "blur(12px)",
+            borderRadius: 888,
           }}
         />
         <p
@@ -105,18 +104,15 @@ export const BitcoinUtilitySection = (): JSX.Element => {
           minHeight: "600px",
         }}
       >
-        {/* 2x2 grid of panels */}
+        {/* 2x2 grid: row 1 = text then image, row 2 = image then text */}
         <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-[160px] w-full max-w-[960px]"
-          style={{ transform: "matrix(1, 0.02, 0, 1, 0, 0)" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 lg:gap-x-20 gap-y-10 sm:gap-y-12 md:gap-y-16 lg:gap-y-20 w-full max-w-[1100px]"
         >
-          {PANELS.map(({ text, image, alt }, i) => (
-            <div
-              key={i}
-              className="flex flex-col items-center justify-center text-center gap-6"
-            >
+          {PANELS.map(({ text, image, alt }, i) => {
+            const textFirst = i < 2; // top row: text first; bottom row: image first
+            const imageEl = (
               <div
-                className="w-full max-w-[380px] h-[220px] md:h-[258px] mx-auto bg-center bg-no-repeat bg-contain"
+                className="w-full max-w-[380px] h-[220px] md:h-[258px] mx-auto bg-center bg-no-repeat bg-contain flex-shrink-0"
                 style={{
                   backgroundImage: `url('${encodeURI(image)}')`,
                   mixBlendMode: "multiply",
@@ -130,6 +126,8 @@ export const BitcoinUtilitySection = (): JSX.Element => {
                 role="img"
                 aria-label={alt}
               />
+            );
+            const textEl = (
               <p
                 className="max-w-[420px] mx-auto"
                 style={{
@@ -143,28 +141,48 @@ export const BitcoinUtilitySection = (): JSX.Element => {
               >
                 {text}
               </p>
-            </div>
-          ))}
+            );
+            return (
+              <div
+                key={i}
+                className="flex flex-col items-center justify-center text-center gap-6"
+              >
+                {textFirst ? (
+                  <>
+                    {textEl}
+                    {imageEl}
+                  </>
+                ) : (
+                  <>
+                    {imageEl}
+                    {textEl}
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
 
-        {/* Desktop: center tagline with blur overlay */}
+        {/* Desktop: center tagline with black overlay+blur, orange glow */}
         <div
-          className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[534px] justify-center items-center z-10 px-4 pointer-events-none"
+          className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[480px] justify-center items-center z-10 px-4 pointer-events-none"
           aria-hidden
         >
+          {/* Light translucent black overlay+blur (Sigma: 534×147, blur 12px, radius 888px) */}
           <div
-            className="absolute inset-0 rounded-[888px]"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[534px] h-[147px] z-[1]"
             style={{
               background: "rgba(0, 0, 0, 0.12)",
               filter: "blur(12px)",
+              borderRadius: 888,
             }}
           />
           <p
-            className="relative z-10 w-full max-w-[410px] text-center"
+            className="relative z-[3] w-full max-w-[410px] text-center"
             style={{
               fontFamily: "'Geist Mono', 'SF Mono', ui-monospace, monospace",
               fontWeight: 600,
-              fontSize: "clamp(18px, 2.2vw, 24px)",
+              fontSize: "24px",
               lineHeight: "29px",
               letterSpacing: "-0.36px",
               color: "#121111",

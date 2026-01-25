@@ -419,43 +419,35 @@ export const FooterSection = (): JSX.Element => {
 
       {/* Footer - Footer */}
       <div
-        className="absolute flex flex-col justify-center items-center w-full"
+        className="absolute flex flex-col justify-center items-center w-full left-0 bottom-[-1px] px-4 sm:px-6 md:px-8 min-h-0"
         style={{
-          padding: "0px 16px",
-          minHeight: "auto",
-          left: "0px",
-          bottom: "-1px",
           background: "rgba(0, 0, 0, 0.12)",
           backdropFilter: "blur(8px)",
         }}
       >
         {/* HorizontalBorder */}
 
-        <div className="relative z-10 flex flex-col items-center gap-12 px-10 py-14 w-full max-w-[1390px] mx-auto">
-          {/* Text Content */}
-          <div className="flex flex-col items-center gap-[22px]">
+        <div className="relative z-10 flex flex-col items-center gap-8 sm:gap-10 md:gap-12 px-4 sm:px-6 md:px-10 py-10 sm:py-12 md:py-14 w-full max-w-[1390px] mx-auto">
+          <div className="flex flex-col items-center gap-4 sm:gap-5 md:gap-[22px]">
             <h2
-              className="text-white text-center"
+              className="text-white text-center w-full max-w-[812px] whitespace-nowrap"
               style={{
                 fontFamily: "SF Pro Display",
                 fontWeight: 500,
-                fontSize: "40px",
-                lineHeight: "46px",
+                fontSize: "clamp(1.25rem, 4.5vw, 40px)",
+                lineHeight: "1.15",
                 letterSpacing: "-0.4px",
-                maxWidth: "812px",
               }}
             >
               Your Bitcoin. Your Liquidity. Your Financial Power.
             </h2>
             <p
-              className="text-white text-center"
+              className="text-white text-center w-full max-w-[600px] text-base sm:text-lg md:text-xl lg:text-2xl"
               style={{
                 fontFamily: "SF Pro",
                 fontWeight: 400,
-                fontSize: "24px",
-                lineHeight: "29px",
+                lineHeight: "1.35",
                 letterSpacing: "-0.4px",
-                maxWidth: "600px",
               }}
             >
               Borrow, lend, and earn — natively and securely. No bridges. No wrapping. No middlemen.
@@ -522,11 +514,7 @@ export const FooterSection = (): JSX.Element => {
 
         {/* Content */}
         <div
-          className="flex flex-col sm:flex-row justify-between items-start w-full py-6 sm:py-8 gap-6 sm:gap-0"
-          style={{
-            maxWidth: "1320px",
-            minHeight: "auto",
-          }}
+          className="flex flex-col sm:flex-row justify-between items-start w-full py-6 sm:py-8 gap-6 sm:gap-0 px-4 sm:px-6 md:px-10 max-w-[1320px] mx-auto min-h-0"
         >
           {/* Nav - Navigation */}
           <div
@@ -548,7 +536,7 @@ export const FooterSection = (): JSX.Element => {
               Home
             </a>
             <a
-              href="#support"
+              href="#whitepaper"
               className="text-white text-sm"
               style={{
                 fontFamily: "SF Pro",
@@ -557,10 +545,10 @@ export const FooterSection = (): JSX.Element => {
                 letterSpacing: "-0.15px",
               }}
             >
-              Support
+              Whitepaper
             </a>
             <a
-              href="#guides"
+              href="#docs"
               className="text-white text-sm"
               style={{
                 fontFamily: "SF Pro",
@@ -569,10 +557,12 @@ export const FooterSection = (): JSX.Element => {
                 letterSpacing: "-0.15px",
               }}
             >
-              Guides
+              Docs
             </a>
             <a
-              href="#404"
+              href="https://x.com/liquidsat_ofc"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white text-sm"
               style={{
                 fontFamily: "SF Pro",
@@ -581,7 +571,21 @@ export const FooterSection = (): JSX.Element => {
                 letterSpacing: "-0.15px",
               }}
             >
-              404
+              X
+            </a>
+            <a
+              href="https://discord.gg/a7UKTSVxgq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white text-sm"
+              style={{
+                fontFamily: "SF Pro",
+                fontWeight: 500,
+                lineHeight: "16px",
+                letterSpacing: "-0.15px",
+              }}
+            >
+              Discord
             </a>
           </div>
 
@@ -611,44 +615,25 @@ export const FooterSection = (): JSX.Element => {
               {/* Social icons */}
             </div>
 
-            {/* Desktop - Email Form */}
-            <div
-              className="relative flex flex-row justify-center items-center w-full"
-              style={{
-                maxWidth: "100%",
-                height: "47px",
-                borderRadius: "10px",
-              }}
-            >
-              {/* Input */}
+            {/* Email Form */}
+            <div className="relative flex flex-row justify-center items-center w-full max-w-[400px] min-w-0 h-11 sm:h-[47px] rounded-[10px]">
               <input
                 type="email"
                 placeholder="name@email.com"
-                className="text-white outline-none w-full text-sm"
+                className="text-white outline-none w-full min-w-0 text-sm h-full pl-4 pr-20 sm:pr-[100px] rounded-xl"
                 style={{
-                  height: "47px",
-                  padding: "14px 100px 14px 16px",
                   background: "rgba(18, 17, 17, 0.75)",
                   boxShadow: "inset 0px 0px 0px 1px rgba(255, 255, 255, 0.06)",
-                  borderRadius: "12px",
                   fontFamily: "SF Pro",
                   fontWeight: 400,
                   lineHeight: "17px",
                   color: "rgba(255, 255, 255, 0.65)",
                 }}
               />
-
-              {/* Subscribe Button */}
               <button
-                className="absolute flex flex-row justify-center items-start text-white text-xs sm:text-sm"
+                className="absolute flex flex-row justify-center items-center text-white text-xs sm:text-sm right-1 top-1/2 -translate-y-1/2 w-16 sm:w-[90px] h-8 sm:h-[39px] rounded-lg"
                 style={{
-                  width: "90px",
-                  height: "39px",
-                  right: "4px",
-                  top: "4px",
-                  padding: "11.5px 0px",
                   background: "#292929",
-                  borderRadius: "8px",
                   fontFamily: "SF Pro",
                   fontWeight: 400,
                   lineHeight: "14px",

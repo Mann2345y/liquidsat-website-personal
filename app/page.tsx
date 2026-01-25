@@ -43,7 +43,7 @@ const FooterSection = dynamic(
 
 export default function Home() {
   return (
-    <div className="bg-transparent flex flex-col items-center w-full min-h-screen">
+    <div className="bg-transparent flex flex-col items-center w-full min-h-screen overflow-x-hidden">
       <div className="w-full">
         {/* Hero section with integrated navbar */}
         <HeroSection />

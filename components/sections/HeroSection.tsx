@@ -44,7 +44,7 @@ export const HeroSection = (): JSX.Element => {
           }}
         >
           <Image
-            src="/desktop-30/frame_001.png"
+            src="/desktop-30/frame_002.png"
             alt="abstract bitcoin financing layer showing non-custodial liquidity flow"
             fill
             className="object-cover w-screen h-screen"
@@ -55,45 +55,36 @@ export const HeroSection = (): JSX.Element => {
 
       {/* Bitcoin Image - Centered */}
 
-      {/* Top Navigation Bar - Absolute positioned at top */}
+      {/* Top Navigation Bar - Absolute positioned at top, responsive */}
       <nav
-        className="absolute z-10"
-        style={{
-          width: '440px',
-          height: '50px',
-          left: 'calc(50% - 440px/2)',
-          top: '23px',
-        }}
+        className="absolute z-10 left-1/2 -translate-x-1/2 w-[calc(100%-24px)] sm:w-[calc(100%-48px)] max-w-[440px] top-3 sm:top-[23px]"
       >
         <div
-          className="flex justify-center items-center w-full h-full rounded-[72px] backdrop-blur-[6px]"
+          className="flex justify-center items-center w-full min-h-[44px] sm:min-h-[50px] h-auto rounded-[72px] backdrop-blur-[6px] py-1.5 sm:py-0"
           style={{
             background: "#27272A",
             border: "1px solid #404040",
-            padding: "5px 5px 5px 16px",
+            padding: "6px 8px 6px 12px",
           }}
         >
-          <div className="flex justify-between items-center w-full px-5">
+          <div className="flex justify-between items-center w-full px-2 sm:px-5 gap-2">
             {/* Logo & Nav Links */}
-            <div className="flex items-center gap-9">
-              {/* Logo */}
+            <div className="flex items-center gap-4 sm:gap-5 md:gap-9 min-w-0">
               <Image
                 src="/logo.png"
                 alt="logo-image"
                 width={36}
                 height={36}
-                className="object-contain"
+                className="object-contain flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9"
               />
-
-              {/* Nav Links */}
-              <div className="flex items-center gap-5">
+              {/* Nav Links - hidden on very small, shown from sm */}
+              <div className="hidden sm:flex items-center gap-3 md:gap-5">
                 <a
                   href="#docs"
-                  className="text-white transition-colors"
+                  className="text-white transition-colors text-sm md:text-base whitespace-nowrap"
                   style={{
                     fontFamily: "SF Pro",
                     fontWeight: 500,
-                    fontSize: "16px",
                     lineHeight: "18px",
                     letterSpacing: "-0.15px",
                   }}
@@ -102,11 +93,10 @@ export const HeroSection = (): JSX.Element => {
                 </a>
                 <a
                   href="#whitepaper"
-                  className="text-white transition-colors"
+                  className="text-white transition-colors text-sm md:text-base whitespace-nowrap"
                   style={{
                     fontFamily: "SF Pro",
                     fontWeight: 500,
-                    fontSize: "16px",
                     lineHeight: "18px",
                     letterSpacing: "-0.15px",
                   }}
@@ -115,19 +105,16 @@ export const HeroSection = (): JSX.Element => {
                 </a>
               </div>
             </div>
-
-            {/* Join Waitlist Button */}
             <button
               onClick={() =>
                 window.open("https://app.liquidsat.com/", "_blank")
               }
-              className="flex justify-center items-center rounded-[30px] px-4 py-2.5 text-white whitespace-nowrap"
+              className="flex justify-center items-center rounded-[30px] px-3 py-2 sm:px-4 sm:py-2.5 text-white whitespace-nowrap flex-shrink-0 text-sm sm:text-base"
               style={{
                 background: "linear-gradient(100.23deg, rgba(254, 215, 170, 0.2) 22.17%, rgba(253, 186, 116, 0.2) 74.43%, rgba(251, 146, 60, 0.2) 100%)",
                 border: "1px solid #C5C5C5",
                 fontFamily: "SF Pro",
                 fontWeight: 590,
-                fontSize: "16px",
                 lineHeight: "20px",
                 letterSpacing: "-0.15px",
               }}
@@ -138,46 +125,28 @@ export const HeroSection = (): JSX.Element => {
         </div>
       </nav>
 
-      {/* Main Content - Positioned just below navigation header */}
+      {/* Main Content - Positioned just below navigation header, responsive */}
       <div
-        className="absolute z-10 flex flex-col items-center gap-2"
-        style={{
-          width: '1027px',
-          maxWidth: '90%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          top: '75px',
-          padding: '24px 0px',
-          gap: '42px',
-        }}
+        className="absolute z-10 flex flex-col items-center left-1/2 -translate-x-1/2 w-[90%] max-w-[1027px] top-14 sm:top-16 md:top-[75px] px-0 py-4 sm:py-6 gap-6 sm:gap-8 md:gap-[42px]"
       >
-        {/* Heading and Description Container */}
-        <div className="flex flex-col items-center gap-4 w-full">
-          {/* Main Heading */}
+        <div className="flex flex-col items-center gap-3 sm:gap-4 w-full">
           <h1
-            className="text-center w-full"
+            className="text-center w-full font-[500] tracking-[-0.4px] text-[#27272A] m-0"
             style={{
               fontFamily: "SF Pro Display",
-              fontWeight: 500,
-              fontSize: "48px",
-              lineHeight: "72px",
-              letterSpacing: "-0.4px",
-              color: "#27272A",
-              margin: 0,
+              fontSize: "clamp(1.5rem, 5vw, 48px)",
+              lineHeight: "1.2",
             }}
           >
             Native Bitcoin Financing, Reimagined
             <br />
             Non-Custodial, Instant, and Bridge-Free
           </h1>
-
-          {/* Description */}
           <p
-            className="text-center w-full"
+            className="text-center w-full text-sm sm:text-base md:text-lg"
             style={{
               fontFamily: "SF Pro",
               fontWeight: 400,
-              fontSize: "18px",
               lineHeight: "1.4",
               letterSpacing: "-0.4px",
               color: "#71717A",
@@ -187,40 +156,30 @@ export const HeroSection = (): JSX.Element => {
             Borrow stablecoins or earn yield with your Bitcoin — without wrapping, giving up custody, or relying on intermediaries.
           </p>
         </div>
-
-        {/* Buttons */}
-        <div className="flex flex-row items-center gap-7">
-          {/* Join Waitlist Button */}
+        <div className="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-7">
           <button
             onClick={() => window.open("https://app.liquidsat.com/", "_blank")}
-            className="flex justify-center items-center rounded-[30px]"
+            className="flex justify-center items-center rounded-[30px] min-w-[120px] sm:w-[129px] h-11 sm:h-12"
             style={{
-              width: '129px',
-              height: '48px',
               background: "#F5F5ED",
               border: "1px solid #C5C5C5",
               fontFamily: "SF Pro",
               fontWeight: 590,
-              fontSize: "16px",
+              fontSize: "14px",
               lineHeight: "20px",
               color: "#27272A",
             }}
           >
             Join Waitlist
           </button>
-
-          {/* Launch App Button */}
           <button
             onClick={() => window.open("https://app.liquidsat.com/", "_blank")}
-            className="flex justify-center items-center rounded-[30px] text-white"
+            className="flex justify-center items-center rounded-[30px] min-w-[120px] sm:w-[126px] h-11 sm:h-12 text-white text-sm sm:text-base"
             style={{
-              width: '126px',
-              height: '48px',
               background: "linear-gradient(104.37deg, #FB923C -6.75%, #F96A27 89.65%)",
               boxShadow: "inset 0px 2px 2px rgba(0, 0, 0, 0.25)",
               fontFamily: "SF Pro",
               fontWeight: 590,
-              fontSize: "16px",
               lineHeight: "20px",
             }}
           >
@@ -229,19 +188,13 @@ export const HeroSection = (): JSX.Element => {
         </div>
       </div>
 
-      {/* Bottom Description Text - Absolute positioned at bottom */}
+      {/* Bottom Description Text - Absolute positioned at bottom, responsive */}
       <p
-        className="absolute z-10 text-center"
+        className="absolute z-10 text-center left-1/2 -translate-x-1/2 w-[90%] max-w-[862px] bottom-4 sm:bottom-5 text-xs sm:text-sm md:text-base px-2"
         style={{
-          width: '862px',
-          maxWidth: '90%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          bottom: '20px',
           fontFamily: "SF Pro",
           fontWeight: 400,
-          fontSize: "16px",
-          lineHeight: "29px",
+          lineHeight: "1.5",
           letterSpacing: "-0.4px",
           color: "#71717A",
           margin: 0,
