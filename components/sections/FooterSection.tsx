@@ -458,8 +458,7 @@ export const FooterSection = (): JSX.Element => {
                 maxWidth: "600px",
               }}
             >
-              Borrow, trade, and earn with Bitcoin — without giving up custody,
-              relying on wrapped assets, or trusting bridges.
+              Borrow, lend, and earn — natively and securely. No bridges. No wrapping. No middlemen.
             </p>
           </div>
 

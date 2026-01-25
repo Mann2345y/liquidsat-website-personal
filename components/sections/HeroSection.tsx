@@ -1,49 +1,56 @@
 "use client";
 
 import React from "react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { useBreakpoint } from "../../hooks/use-breakpoint";
-// import SequenceAnimation, { SequenceConfig } from "../hero/SequenceAnimation"; // Disabled - animation not in use
+import { useBreakpoint, BreakpointType } from "../../hooks/use-breakpoint";
+import { SequenceConfig } from "../hero/SequenceAnimation";
 import styles from "../hero/hero.module.css";
 
 export const HeroSection = (): JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
-  // const canvasRef = useRef<HTMLCanvasElement>(null); // Disabled - animation not in use
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const { isMobile } = useBreakpoint();
-  // const [refsReady, setRefsReady] = useState(false); // Disabled - animation not in use
+  const [refsReady, setRefsReady] = useState(false);
 
-  // Animation setup disabled - using static image instead
-  // useEffect(() => {
-  //   const checkRefs = () => {
-  //     if (!isMobile && timelineRef.current && canvasRef.current) {
-  //       setRefsReady(true);
-  //     }
-  //   };
-  //   checkRefs();
-  //   const timeout = setTimeout(checkRefs, 100);
-  //   return () => clearTimeout(timeout);
-  // }, [isMobile]);
+  // Ensure refs are ready before mounting animation
+  useEffect(() => {
+    // Check if refs are available after mount
+    const checkRefs = () => {
+      if (!isMobile && timelineRef.current && canvasRef.current) {
+        setRefsReady(true);
+      }
+    };
 
-  // Sequence configuration - disabled (animation not in use)
-  // const sequenceConfig: SequenceConfig = {
-  //   loopConfig: {
-  //     loopDuration: 1.8,
-  //     framesPerLoop: 12,
-  //     transitionStartScrollOffset: 1,
-  //     loopStartFrame: 1,
-  //     loopEndFrame: 12,
-  //     transitionDuration: 0.4,
-  //   },
-  //   totalFrames: {
-  //     [BreakpointType.Desktop]: 12,
-  //     [BreakpointType.Tablet]: 12,
-  //     [BreakpointType.Mobile]: 12,
-  //   },
-  //   countPreloadFrames: 6,
-  //   framePath: '/desktop-30/frame_002.png',
-  // };
+    // Check immediately and after a short delay to ensure DOM is ready
+    checkRefs();
+    const timeout = setTimeout(checkRefs, 100);
+
+    return () => clearTimeout(timeout);
+  }, [isMobile]);
+
+  // Sequence configuration - using 12 frames (temporary, will be updated to 30 later)
+  // The frames are now in desktop-30 folder, numbered 001-012
+  // 12 frames / 1.8 seconds = ~6.7fps playback
+  const sequenceConfig: SequenceConfig = {
+    loopConfig: {
+      loopDuration: 1.8, // 12 frames at ~6.7fps = 1.8 seconds
+      framesPerLoop: 12,
+      transitionStartScrollOffset: 1,
+      loopStartFrame: 1,
+      loopEndFrame: 12,
+      transitionDuration: 0.4, // Smooth transition for playback
+    },
+    totalFrames: {
+      [BreakpointType.Desktop]: 12,
+      [BreakpointType.Tablet]: 12,
+      [BreakpointType.Mobile]: 12,
+    },
+    countPreloadFrames: 6, // Preload frames for smooth playback
+    framePath: '/desktop-30/frame_002.png',
+    // No frame mapper needed - frames are already 1-30 in the new folder
+  };
 
   return (
     <section
@@ -52,7 +59,7 @@ export const HeroSection = (): JSX.Element => {
       style={{
         width: '100%',
         height: '100vh',
-        background: '#F7F1EA',
+        background: '#EEE8E2',
         borderRadius: '0px 0px 32px 32px',
         boxShadow: '0px 4px 8px 1px rgba(0, 0, 0, 0.15)',
       }}
@@ -60,12 +67,12 @@ export const HeroSection = (): JSX.Element => {
       {/* Timeline element for ScrollTrigger */}
       <div ref={timelineRef} className={styles.timeline} />
 
-      {/* Static frame image - Animation disabled for testing */}
+      {/* Static frame image - pushed 100px down, 95% width, centered */}
       {!isMobile && (
         <div
           className="absolute"
           style={{
-            top: 0,
+            top: '0',
             left: '50%',
             width: '100vw',
             height: '100vh',
@@ -79,7 +86,7 @@ export const HeroSection = (): JSX.Element => {
         >
           <Image
             src="/desktop-30/frame_001.png"
-            alt="Hero animation frame"
+            alt="abstract bitcoin financing layer showing non-custodial liquidity flow"
             fill
             className="object-cover w-screen h-screen"
             priority
@@ -88,24 +95,7 @@ export const HeroSection = (): JSX.Element => {
       )}
 
       {/* Bitcoin Image - Centered */}
-      <div
-        className="absolute z-10"
-        style={{
-          left: '50%',
-          top: '60%',
-          transform: 'translate(-50%, -50%)',
-          pointerEvents: 'none',
-        }}
-      >
-        <Image
-          src="/B Front.png"
-          alt="Bitcoin"
-          width={220}
-          height={220}
-          className="object-contain"
 
-        />
-      </div> 
       {/* Top Navigation Bar - Absolute positioned at top */}
       <nav
         className="absolute z-10"
@@ -143,7 +133,7 @@ export const HeroSection = (): JSX.Element => {
                   className="text-white transition-colors"
                   style={{
                     fontFamily: "SF Pro",
-                    fontWeight: 510,
+                    fontWeight: 500,
                     fontSize: "16px",
                     lineHeight: "18px",
                     letterSpacing: "-0.15px",
@@ -156,7 +146,7 @@ export const HeroSection = (): JSX.Element => {
                   className="text-white transition-colors"
                   style={{
                     fontFamily: "SF Pro",
-                    fontWeight: 510,
+                    fontWeight: 500,
                     fontSize: "16px",
                     lineHeight: "18px",
                     letterSpacing: "-0.15px",
@@ -190,7 +180,7 @@ export const HeroSection = (): JSX.Element => {
       </nav>
 
       {/* Main Content - Positioned just below navigation header */}
-      <div 
+      <div
         className="absolute z-10 flex flex-col items-center gap-2"
         style={{
           width: '1027px',
@@ -217,40 +207,26 @@ export const HeroSection = (): JSX.Element => {
               margin: 0,
             }}
           >
-            Put Your Bitcoin to Work Safely
+            Native Bitcoin Financing, Reimagined
+            <br />
+            Non-Custodial, Instant, and Bridge-Free
           </h1>
 
-          {/* Description Lines */}
-          <div className="flex flex-col items-center gap-1 w-full">
-            <p
-              className="text-center w-full"
-              style={{
-                fontFamily: "SF Pro",
-                fontWeight: 400,
-                fontSize: "18px",
-                lineHeight: "16px",
-                letterSpacing: "-0.4px",
-                color: "#71717A",
-                margin: 0,
-              }}
-            >
-              Borrow stablecoins or earn yield on your Bitcoin - No Custodian, No Wrapping
-            </p>
-            <p
-              className="text-center w-full"
-              style={{
-                fontFamily: "SF Pro",
-                fontWeight: 400,
-                fontSize: "18px",
-                lineHeight: "16px",
-                letterSpacing: "-0.4px",
-                color: "#71717A",
-                margin: 0,
-              }}
-            >
-              100% non-custodial, secure, and multi-chain
-            </p>
-          </div>
+          {/* Description */}
+          <p
+            className="text-center w-full"
+            style={{
+              fontFamily: "SF Pro",
+              fontWeight: 400,
+              fontSize: "18px",
+              lineHeight: "1.4",
+              letterSpacing: "-0.4px",
+              color: "#71717A",
+              margin: 0,
+            }}
+          >
+            Borrow stablecoins or earn yield with your Bitcoin — without wrapping, giving up custody, or relying on intermediaries.
+          </p>
         </div>
 
         {/* Buttons */}
@@ -312,7 +288,7 @@ export const HeroSection = (): JSX.Element => {
           margin: 0,
         }}
       >
-        19.9 Million BTC Lie Idle — Let&apos;s Change That by brings liquidity to native Bitcoin — bridging ecosystems without bridges.
+        19.9 Million BTC Lie Idle — Let's Change That by brings liquidity to native Bitcoin — bridging ecosystems without bridges.
       </p>
 
       {/* Sequence animation controller - DISABLED FOR TESTING */}
@@ -322,7 +298,7 @@ export const HeroSection = (): JSX.Element => {
           canvasElement={canvasRef.current}
           config={sequenceConfig}
         />
-      )} */} 
+      )} */}
     </section>
   );
 };

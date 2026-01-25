@@ -7,7 +7,7 @@ export const FeaturesSection = (): JSX.Element => {
 
   const features = [
     {
-      title: "Self-Custodial by Design",
+      title: "Non-Custodial by Design",
       icon: (
         <svg
           width="64"
@@ -42,7 +42,7 @@ export const FeaturesSection = (): JSX.Element => {
         </svg>
       ),
       description:
-        "Your BTC stays on Bitcoin, secured by native scripts. Stablecoins flow directly between lender and borrower — enabling true self-custodial Bitcoin financing.",
+        "Your BTC stays on Bitcoin, secured by native scripts. Stablecoins flow directly between lender and borrower, enabling true non-custodial Bitcoin financing.",
     },
     {
       title: "Bridge-Free Architecture",
@@ -233,8 +233,7 @@ export const FeaturesSection = (): JSX.Element => {
             }}
           >
             LiquidSat transforms your Bitcoin into usable liquidity across
-            chains — safely, instantly, and without ever compromising
-            self-custody.
+            chains — safely, instantly, and without ever compromising custody.
           </p>
         </div>
 

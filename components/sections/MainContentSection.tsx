@@ -12,6 +12,7 @@ export const MainContentSection = (): JSX.Element => {
       title: "Bitcoin-Native Infra",
       description:
         "No wrapped assets or bridges. BTC locked natively using script-based escrow.",
+      alt: "non-custodial bitcoin financing architecture using script-based collateral",
     },
     {
       icon: "/figmaAssets/component-1-2.svg",
@@ -55,7 +56,7 @@ export const MainContentSection = (): JSX.Element => {
                   <div className="flex w-14 h-14 items-center justify-center bg-wwwfigmacomfeta rounded-full">
                     <Image
                       className="w-7 h-7"
-                      alt="Security feature icon"
+                      alt={feature.alt ?? "Security feature icon"}
                       src={feature.icon}
                       width={28}
                       height={28}

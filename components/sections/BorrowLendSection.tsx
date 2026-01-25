@@ -81,7 +81,7 @@ export const BorrowLendSection = (): JSX.Element => {
                 letterSpacing: "-0.4px",
               }}
             >
-              Two Ways to Access Bitcoin-Backed Liquidity — Fully Non-Custodial
+              One Bitcoin Financing Layer. Multiple Paths to Productivity.
             </h2>
 
             {/* Right Description + Button */}
@@ -101,8 +101,7 @@ export const BorrowLendSection = (): JSX.Element => {
                   letterSpacing: "-0.4px",
                 }}
               >
-                Access instant fixed-rate liquidity through BTC financing pools,
-                or create personalized peer-to-peer loan terms.
+                Both modes use the same Bitcoin-native collateral and settlement engine — only execution differs.
               </p>
               <button
                 className="flex flex-row justify-center items-center rounded-[30px]"
@@ -130,23 +129,201 @@ export const BorrowLendSection = (): JSX.Element => {
             </div>
           </div>
 
-          {/* Two Cards - Peer-to-Pool and Peer-to-Peer */}
-          <div className="flex flex-col md:flex-row flex-wrap md:flex-nowrap items-center w-full gap-4 sm:gap-5 min-h-[300px] lg:h-[424px]">
-            <Image
-              src={"/left-image.png"}
-              alt="Peer-to-Pool"
-              width={500}
-              height={424}
-              className="h-full w-full grow object-cover rounded-lg"
-            />
-
-            <Image
-              src={"/right-image.png"}
-              alt="Peer-to-Peer"
-              width={500}
-              height={424}
-              className="h-full w-full grow object-cover rounded-lg"
-            />
+          {/* Two Financing Mode Cards */}
+          <div className="flex flex-row flex-nowrap items-stretch justify-center w-full gap-4 sm:gap-6">
+            {[
+              {
+                title: "Instant Markets (Pool-Based)",
+                subtitle: "Market Based Financing",
+                image: "/food.svg",
+                features: [
+                  "Fixed rates and durations",
+                  "No negotiation or pre-deposit",
+                  "Deterministic execution",
+                ],
+                bestFor: "Users who value speed and standard terms.",
+              },
+              {
+                title: "Custom Agreements",
+                subtitle: "Personalized Loans. Direct Agreement Between Parties.",
+                image: "/contract.svg",
+                features: [
+                  "Define LTV, duration, and pricing",
+                  "Direct wallet-to-wallet settlement",
+                  "Outcomes enforced by Bitcoin scripts",
+                ],
+                bestFor: "Users who need flexibility or custom structures.",
+              },
+            ].map((card) => (
+              <div
+                key={card.title}
+                className="relative flex-1 min-w-0 overflow-hidden flex flex-col"
+                style={{
+                  maxWidth: "556px",
+                  minHeight: "326px",
+                  background: "linear-gradient(225.7deg, #57432F 0%, #27272A 74.69%)",
+                  boxShadow: "0px 0px 0px 6px rgba(255, 255, 255, 0.07)",
+                  borderRadius: "20px",
+                  border: "1px solid #FFFFFF",
+                  boxSizing: "border-box",
+                  padding: "28px 40px",
+                }}
+              >
+                {/* Blur */}
+                <div
+                  className="absolute pointer-events-none"
+                  style={{
+                    width: "369px",
+                    height: "422px",
+                    right: "28.36px",
+                    top: "-180.1px",
+                    filter: "blur(9px)",
+                    transform: "rotate(21deg)",
+                    background: "linear-gradient(180deg, rgba(253, 186, 116, 0.12) 0%, rgba(253, 186, 116, 0) 100%)",
+                  }}
+                />
+                {/* Gradient+Blur - soft backdrop, no hard edges */}
+                <div
+                  className="absolute pointer-events-none"
+                  style={{
+                    width: "306.18px",
+                    height: "237.05px",
+                    left: "213.19px",
+                    top: "6.24px",
+                    background: "linear-gradient(180deg, rgba(253, 186, 116, 0.5) 0%, rgba(253, 186, 116, 0.15) 50%, rgba(253, 186, 116, 0) 100%)",
+                    opacity: 0.7,
+                    filter: "blur(28px)",
+                    transform: "rotate(48.95deg)",
+                  }}
+                />
+                {/* Right-side icon - food: circle; contract: rounded rect + scale so pen/doc aren't clipped */}
+                {card.image && (
+                  <div
+                    className="absolute pointer-events-none overflow-hidden flex items-center justify-center"
+                    style={{
+                      right: "20px",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      width: "100px",
+                      height: "100px",
+                      zIndex: 5,
+                      borderRadius: card.image === "/contract.svg" ? "24px" : "50%",
+                      filter: "drop-shadow(0 4px 24px rgba(253, 186, 116, 0.35)) drop-shadow(-2px -2px 12px rgba(255, 255, 255, 0.18))",
+                    }}
+                  >
+                    <img
+                      src={card.image}
+                      alt=""
+                      width={100}
+                      height={100}
+                      className="object-contain"
+                      style={{
+                        width: card.image === "/contract.svg" ? "90%" : "100%",
+                        height: card.image === "/contract.svg" ? "90%" : "100%",
+                        filter: "invert(0.78) sepia(0.38) saturate(3.2) hue-rotate(-8deg) brightness(1.08) contrast(1.08)",
+                        opacity: 0.96,
+                      }}
+                    />
+                  </div>
+                )}
+                {/* Content - flex column, evenly spaced */}
+                <div
+                  className="relative z-10 flex flex-col flex-1"
+                  style={{ gap: "20px", justifyContent: "space-between" }}
+                >
+                  {/* Title + Subtitle */}
+                  <div className="flex flex-col" style={{ gap: "4px" }}>
+                    <span
+                      style={{
+                        fontFamily: "SF Pro, system-ui, sans-serif",
+                        fontWeight: 500,
+                        fontSize: "19px",
+                        lineHeight: "1.3",
+                        letterSpacing: "-0.4px",
+                        color: "#FFFFFF",
+                      }}
+                    >
+                      {card.title}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "SF Pro, system-ui, sans-serif",
+                        fontWeight: 500,
+                        fontSize: "14px",
+                        lineHeight: "1.35",
+                        letterSpacing: "-0.136082px",
+                        color: "rgba(255, 255, 255, 0.75)",
+                      }}
+                    >
+                      {card.subtitle}
+                    </span>
+                  </div>
+                  {/* Features - bullet list */}
+                  <ul
+                    style={{
+                      listStyleType: "disc",
+                      listStylePosition: "outside",
+                      paddingLeft: "20px",
+                      margin: 0,
+                    }}
+                  >
+                    {card.features.map((f) => (
+                      <li
+                        key={f}
+                        style={{
+                          fontFamily: "SF Pro, system-ui, sans-serif",
+                          fontWeight: 500,
+                          fontSize: "15px",
+                          lineHeight: "1.5",
+                          letterSpacing: "-0.4px",
+                          color: "#FFFFFF",
+                          marginBottom: "6px",
+                        }}
+                      >
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  {/* BEST FOR - compact text + background */}
+                  <div
+                    className="flex flex-col"
+                    style={{
+                      gap: "2px",
+                      padding: "10px 14px",
+                      borderRadius: "10px",
+                      background: "rgba(255, 255, 255, 0.08)",
+                      border: "1px solid rgba(255, 255, 255, 0.12)",
+                      alignSelf: "flex-start",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "SF Pro, system-ui, sans-serif",
+                        fontWeight: 600,
+                        fontSize: "12px",
+                        lineHeight: "1.3",
+                        letterSpacing: "0.04em",
+                        color: "rgba(255, 255, 255, 0.9)",
+                      }}
+                    >
+                      BEST FOR
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "SF Pro, system-ui, sans-serif",
+                        fontWeight: 500,
+                        fontSize: "13px",
+                        lineHeight: "1.35",
+                        letterSpacing: "-0.136082px",
+                        color: "rgba(255, 255, 255, 0.85)",
+                      }}
+                    >
+                      {card.bestFor}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -179,9 +356,8 @@ export const BorrowLendSection = (): JSX.Element => {
             >
               <button
                 onClick={() => setActiveTab("borrowers")}
-                className={`flex flex-row justify-center items-center rounded-[30px] transition-all duration-300 flex-1 ${
-                  activeTab === "borrowers" ? "border border-[#C5C5C5]" : ""
-                }`}
+                className={`flex flex-row justify-center items-center rounded-[30px] transition-all duration-300 flex-1 ${activeTab === "borrowers" ? "border border-[#C5C5C5]" : ""
+                  }`}
                 style={{
                   height: "48px",
                   padding: "14px 16px",
@@ -204,9 +380,8 @@ export const BorrowLendSection = (): JSX.Element => {
               </button>
               <button
                 onClick={() => setActiveTab("lenders")}
-                className={`flex flex-row justify-center items-center rounded-[30px] transition-all duration-300 flex-1 ${
-                  activeTab === "lenders" ? "border border-[#C5C5C5]" : ""
-                }`}
+                className={`flex flex-row justify-center items-center rounded-[30px] transition-all duration-300 flex-1 ${activeTab === "lenders" ? "border border-[#C5C5C5]" : ""
+                  }`}
                 style={{
                   height: "48px",
                   padding: "14px 16px",

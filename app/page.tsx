@@ -11,6 +11,14 @@ const BorrowLendSection = dynamic(
   { ssr: true }
 );
 
+const BitcoinUtilitySection = dynamic(
+  () =>
+    import("@/components/sections/BitcoinUtilitySection").then(
+      (mod) => mod.BitcoinUtilitySection
+    ),
+  { ssr: true }
+);
+
 const SecurityFeaturesSection = dynamic(
   () =>
     import("@/components/sections/SecurityFeaturesSection").then(
@@ -44,6 +52,7 @@ export default function Home() {
         <div className="w-full">
           <FeaturesSection />
           <BorrowLendSection />
+          <BitcoinUtilitySection />
           <SecurityFeaturesSection />
           <FAQSection />
           <FooterSection />

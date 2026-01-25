@@ -46,7 +46,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                 letterSpacing: "-0.4px",
               }}
             >
-              Every BTC lock, proof, and settlement is executed through native Bitcoin scripts — not wrapped assets or bridge custodians.
+              Every BTC lock, proof, and settlement is executed through native Bitcoin scripts — not wrapped assets or bridge custodians. Infrastructure for BTC-Backed Finance.
             </p>
             <button
               className="flex flex-row justify-center items-center px-4 py-3.5 rounded-[30px]"
@@ -64,7 +64,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                   lineHeight: "18px",
                 }}
               >
-                Read Security Paper
+                Read Whitepaper
               </span>
             </button>
           </div>
@@ -89,7 +89,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
               {/* Card Image */}
               <Image
                 src="/sfv1.png"
-                alt="Native Script Locks"
+                alt="native bitcoin script lock securing bitcoin-backed financing"
                 width={400}
                 height={300}
                 className="w-full h-full object-contain min-h-[180px]"
@@ -117,7 +117,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                   letterSpacing: "-0.136082px",
                 }}
               >
-                Your BTC stays secured on Bitcoin through script-level controls — the foundation of self-custodial Bitcoin financing.
+                Your BTC (SegWit / Taproot compatible) stays secured on Bitcoin through script-level controls, the foundation of non-custodial Bitcoin financing.
               </p>
             </div>
 
@@ -141,7 +141,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
               {/* Card Image */}
               <Image
                 src="/sfv2.png"
-                alt="On-Chain Risk Engine"
+                alt="bridge-free bitcoin financing secured by native scripts"
                 width={400}
                 height={300}
                 className="w-full h-full object-contain min-h-[180px]"
@@ -211,7 +211,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
                   letterSpacing: "-0.4px",
                 }}
               >
-                Pre-Signed Settlements
+                Pre-Signed Settlement
               </h3>
               <p
                 className="text-[#71717A] text-sm"

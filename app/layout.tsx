@@ -49,13 +49,13 @@ export const metadata: Metadata = {
     title: "LiquidSat | Non-Custodial Bitcoin Financing Layer",
     description:
       "Unlock Bitcoin liquidity without selling, wrapping, or custody. A Non-custodial Bitcoin financing layer for DeFi, payments, and real-world use.",
-    url: "https://liquidsat.com",
+    url: "https://liquidsat.com/",
     siteName: "LiquidSat",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://liquidsat.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "LiquidSat - Non-Custodial Bitcoin Financing Layer",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: "LiquidSat | Bitcoin Financing, Reimagined",
     description:
       "Turn Bitcoin into usable liquidity without custody, wrapping, or bridges. Non-custodial Bitcoin financing across chains.",
-    images: ["/og-image.png"],
+    images: ["https://liquidsat.com/og-image.png"],
     creator: "@liquidsat_",
     site: "@liquidsat_",
   },
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   alternates: {
-    canonical: "https://liquidsat.com",
+    canonical: "https://liquidsat.com/",
   },
   verification: {
     // Add your verification tokens when ready
@@ -113,7 +113,7 @@ export default function RootLayout({
         name: "What is LiquidSat?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "LiquidSat is a self-custodial Bitcoin financing layer that allows BTC holders to unlock liquidity and financial utility across chains without wrapping, custody, or bridges.",
+          text: "LiquidSat is a non-custodial Bitcoin financing layer that allows BTC holders to unlock liquidity and financial utility across chains without wrapping, custody, or bridges.",
         },
       },
       {
@@ -199,6 +199,10 @@ export default function RootLayout({
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
         />
         <script
           type="application/ld+json"

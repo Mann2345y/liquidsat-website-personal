@@ -10,6 +10,7 @@ export const LiquidityOptionsSection = (): JSX.Element => {
     {
       icon: "/figmaAssets/component-1-18.svg",
       title: "Reinvest in BTC",
+      alt: "unlock bitcoin liquidity without selling using non-custodial financing",
       description: [
         "Use liquidity to buy more",
         "Bitcoin and amplify your",
@@ -76,7 +77,7 @@ export const LiquidityOptionsSection = (): JSX.Element => {
                   <div className="flex w-14 h-14 items-center justify-center bg-wwwfigmacomserenade rounded-full">
                     <Image
                       className="w-7 h-7"
-                      alt={`${option.title} icon`}
+                      alt={option.alt ?? `${option.title} icon`}
                       src={option.icon}
                       width={28}
                       height={28}
