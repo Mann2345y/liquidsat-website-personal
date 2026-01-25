@@ -211,7 +211,7 @@ export const BorrowLendSection = (): JSX.Element => {
                       filter: "drop-shadow(0 4px 24px rgba(253, 186, 116, 0.35)) drop-shadow(-2px -2px 12px rgba(255, 255, 255, 0.18))",
                     }}
                   >
-                    <img
+                    <Image
                       src={card.image}
                       alt=""
                       width={100}

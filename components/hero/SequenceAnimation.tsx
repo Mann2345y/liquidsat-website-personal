@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useBreakpoint, BreakpointType } from '../../hooks/use-breakpoint';
@@ -56,7 +56,7 @@ export default function SequenceAnimation({
   const isLoopActiveRef = useRef(config.loopConfig !== undefined);
 
   const framePath = config.framePath || '/desktop/frame_{frame}.webp';
-  const frameMapper = config.frameMapper || ((frame: number) => frame);
+  const frameMapper = useMemo(() => config.frameMapper || ((frame: number) => frame), [config.frameMapper]);
 
   // Load a single frame
   const loadFrame = useCallback((frameNumber: number): Promise<HTMLImageElement> => {
@@ -293,6 +293,7 @@ export default function SequenceAnimation({
 
   // Cleanup
   useEffect(() => {
+    const frameImages = frameImagesRef.current;
     return () => {
       if (scrollTriggerRef.current) {
         scrollTriggerRef.current.kill();
@@ -300,7 +301,7 @@ export default function SequenceAnimation({
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
-      frameImagesRef.current.clear();
+      frameImages.clear();
     };
   }, []);
 
