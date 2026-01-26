@@ -168,7 +168,7 @@ export const BorrowLendSection = (): JSX.Element => {
           </div>
 
           {/* Two Financing Mode Cards - stack on mobile/tablet, side-by-side on lg+ */}
-          <div className="flex flex-col lg:flex-row items-stretch justify-center w-full gap-4 sm:gap-6 px-6">
+          <div className="flex flex-col lg:flex-row items-stretch justify-center w-full gap-4 sm:gap-28 mt-12">
             {[
               {
                 title: "Instant Markets (Pool-Based)",

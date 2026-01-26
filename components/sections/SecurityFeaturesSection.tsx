@@ -29,7 +29,10 @@ export const SecurityFeaturesSection = (): JSX.Element => {
           >
             Non-Custodial by Default.
             <br />
+            <span className="!text-[#27272a]">
+
             Bitcoin Security by Design.
+            </span>
             <br />
           </h2>
 

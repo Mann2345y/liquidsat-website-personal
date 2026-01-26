@@ -36,7 +36,31 @@ export const HeroSection = (): JSX.Element => {
         }}
       >
         <Image
-          src="/desktop-30/frame_003.png"
+          src="/frame_003.png"
+          alt="abstract bitcoin financing layer showing non-custodial liquidity flow"
+          fill
+          className="object-cover object-center"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center',
+          }}
+          priority
+          sizes="100vw"
+        />
+      </div>
+
+      {/* Mobile Background Image */}
+      <div
+        className="block md:hidden absolute inset-0"
+        style={{
+          zIndex: 0,
+          pointerEvents: 'none',
+        }}
+      >
+        <Image
+          src="/mobile-bg.png"
           alt="abstract bitcoin financing layer showing non-custodial liquidity flow"
           fill
           className="object-cover object-center"
@@ -55,7 +79,7 @@ export const HeroSection = (): JSX.Element => {
 
       {/* Top Navigation Bar - Absolute positioned at top, responsive */}
       <nav
-        className="absolute z-20 left-1/2 -translate-x-1/2 w-[calc(100%-24px)] sm:w-[calc(100%-48px)] max-w-[55vw] top-3 sm:top-[23px]"
+        className="absolute z-20 left-1/2 -translate-x-1/2 w-[calc(100%-24px)] sm:w-[calc(100%-48px)] md:max-w-[55vw] top-3 sm:top-[23px]"
       >
         <div
           className="relative flex justify-center items-center w-full min-h-[44px] sm:min-h-[50px] h-auto rounded-[72px] backdrop-blur-[6px] py-1.5 sm:py-0"
@@ -232,7 +256,7 @@ export const HeroSection = (): JSX.Element => {
       >
         <div className="flex flex-col items-center gap-3 sm:gap-4 w-full">
           <h1
-            className="text-center w-full tracking-[-0.4px] text-[#27272A] m-0 text-[36px] min-[601px]:text-[calc(100vh*56/1080)]"
+            className="text-center w-full tracking-[-0.4px] text-[#27272A] m-0 text-[28px] min-[601px]:text-[calc(100vh*56/1080)] hidden md:block"
             style={{
               fontFamily: "SF Pro Display",
               lineHeight: "1.2",
@@ -242,23 +266,49 @@ export const HeroSection = (): JSX.Element => {
           >
             Native Bitcoin Financing, Reimagined
             <br />
-            Non-Custodial, Instant, and Bridge-Free
+            Non-Custodial, and Bridge-Free
+          </h1>
+            <h1
+            className="text-center w-full tracking-[-0.4px] text-[#27272A] m-0 text-[28px] min-[601px]:text-[calc(100vh*56/1080)] mb-4 block md:hidden"
+            style={{
+              fontFamily: "SF Pro Display",
+              lineHeight: "1.2",
+              fontWeight: 500,
+              marginTop: "calc(100vh * 48 / 1080)",
+            }}
+          >
+            Native Bitcoin Financing, Reimagined
+          
           </h1>
           <p
-            className="text-center w-full text-sm sm:text-base md:text-lg"
+            className="text-center w-full text-xl"
             style={{
               fontFamily: "SF Pro",
-              fontWeight: 400,
+              fontWeight: 500,
               lineHeight: "1.4",
               letterSpacing: "-0.4px",
               color: "#71717A",
               margin: 0,
             }}
           >
-            Borrow stablecoins or earn yield with your Bitcoin — without wrapping, giving up custody, or relying on intermediaries.
+Borrow stablecoins or earn yield on your Bitcoin - No Custodian, No Wrapping
           </p>
+      
         </div>
-        <div className="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-7">
+            <div className="md:hidden mt-6">
+          <Image
+            src="/B Front.png"
+            alt="Bitcoin financing illustration"
+            width={100}
+            height={100}
+            className="object-contain"
+            style={{
+              width: '175px',
+              height: '175px',
+            }}
+          />
+        </div>
+        <div className="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-7 mt-6 md:mt-0">
           <button
             onClick={() => window.open("https://app.liquidsat.com/", "_blank")}
             className="flex justify-center items-center rounded-[30px] min-w-[120px] sm:w-[129px] h-11 sm:h-12"
@@ -289,20 +339,7 @@ export const HeroSection = (): JSX.Element => {
           </button>
         </div>
 
-        {/* Mobile Bitcoin Image - Below content, not background */}
-        <div className="md:hidden mt-6">
-          <Image
-            src="/B Front.png"
-            alt="Bitcoin financing illustration"
-            width={100}
-            height={100}
-            className="object-contain"
-            style={{
-              width: '175px',
-              height: '175px',
-            }}
-          />
-        </div>
+ 
       </div>
 
       {/* Bottom Description Text - Absolute positioned at bottom, responsive */}

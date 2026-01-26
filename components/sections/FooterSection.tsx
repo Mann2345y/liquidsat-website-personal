@@ -429,7 +429,7 @@ export const FooterSection = (): JSX.Element => {
         <div className="relative z-10 flex flex-col items-center gap-8 sm:gap-10 md:gap-12 px-4 sm:px-6 md:px-10 py-10 sm:py-12 md:py-14 w-full max-w-[1390px] mx-auto">
           <div className="flex flex-col items-center gap-4 sm:gap-5 md:gap-[22px]">
             <h2
-              className="text-white text-center w-full max-w-[812px]"
+              className="text-white text-center w-full"
               style={{
                 fontFamily: "SF Pro Display",
                 fontWeight: 500,
@@ -449,7 +449,7 @@ export const FooterSection = (): JSX.Element => {
                 letterSpacing: "-0.4px",
               }}
             >
-              Borrow, lend, and earn — natively and securely. No bridges. No wrapping. No middlemen.
+              Borrow, lend, and earn — natively and securely. <br/>No bridges. No wrapping. No middlemen.
             </p>
           </div>
 
