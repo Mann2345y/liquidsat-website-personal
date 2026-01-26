@@ -186,26 +186,53 @@ export const FAQSection = (): JSX.Element => {
               </button>
 
               {/* Answer - Expandable */}
-              {openIndex === index && (
-                <div
-                  className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-5 transition-all"
+              <div
+                className={`px-4 sm:px-6 md:px-8 pb-4 sm:pb-5 transition-all ${
+                  openIndex === index ? "block" : "hidden"
+                }`}
+                style={{
+                  animation: openIndex === index ? "fadeIn 0.3s ease-in-out" : "none",
+                }}
+              >
+                <p
+                  className="text-[#71717A] text-sm sm:text-base"
                   style={{
-                    animation: "fadeIn 0.3s ease-in-out",
+                    fontFamily: "SF Pro",
+                    fontWeight: 400,
+                    lineHeight: "1.5",
+                    letterSpacing: "-0.2px",
                   }}
                 >
-                  <p
-                    className="text-[#71717A] text-sm sm:text-base"
-                    style={{
-                      fontFamily: "SF Pro",
-                      fontWeight: 400,
-                      lineHeight: "1.5",
-                      letterSpacing: "-0.2px",
-                    }}
-                  >
-                    {item.answer}
-                  </p>
+                  {item.answer}
+                </p>
+              </div>
+              {/* Hidden content for crawlers - always in HTML source */}
+              <noscript>
+                <div style={{ display: "block", padding: "16px" }}>
+                  <p>{item.answer}</p>
                 </div>
-              )}
+              </noscript>
+            </div>
+          ))}
+        </div>
+        
+        {/* Hidden FAQ content for crawlers - always in HTML source, visible to search engines */}
+        <div 
+          style={{ 
+            position: "absolute", 
+            left: "-9999px", 
+            width: "1px", 
+            height: "1px", 
+            overflow: "hidden",
+            visibility: "hidden"
+          }}
+          aria-hidden="false"
+        >
+          <h2>Frequently Asked Questions About LiquidSat Bitcoin Financing</h2>
+          {faqItems.map((item, index) => (
+            <div key={`crawler-${index}`}>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
             </div>
           ))}
         </div>

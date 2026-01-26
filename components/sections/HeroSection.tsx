@@ -57,7 +57,7 @@ export const HeroSection = (): JSX.Element => {
 
       {/* Top Navigation Bar - Absolute positioned at top, responsive */}
       <nav
-        className="absolute z-10 left-1/2 -translate-x-1/2 w-[calc(100%-24px)] sm:w-[calc(100%-48px)] max-w-[440px] top-3 sm:top-[23px]"
+        className="absolute z-10 left-1/2 -translate-x-1/2 w-[calc(100%-24px)] sm:w-[calc(100%-48px)] max-w-[55vw] top-3 sm:top-[23px]"
       >
         <div
           className="flex justify-center items-center w-full min-h-[44px] sm:min-h-[50px] h-auto rounded-[72px] backdrop-blur-[6px] py-1.5 sm:py-0"
@@ -69,16 +69,31 @@ export const HeroSection = (): JSX.Element => {
         >
           <div className="flex justify-between items-center w-full px-2 sm:px-5 gap-2">
             {/* Logo & Nav Links */}
-            <div className="flex items-center gap-4 sm:gap-5 md:gap-9 min-w-0">
-              <Image
-                src="/logo.png"
-                alt="logo-image"
-                width={36}
-                height={36}
-                className="object-contain flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9"
-              />
+            <div className="flex items-center gap-4 sm:gap-5 md:gap-9 w-full">
+              {/* Logo with text - appears as one logo */}
+              <div className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0">
+                <Image
+                  src="/logo.png"
+                  alt="LiquidSat logo"
+                  width={36}
+                  height={36}
+                  className="object-contain w-8 h-8 sm:w-9 sm:h-9"
+                />
+                <span
+                  className="text-white whitespace-nowrap"
+                  style={{
+                    fontFamily: "SF Pro",
+                    fontWeight: 500,
+                    fontSize: "16px",
+                    lineHeight: "20px",
+                    letterSpacing: "-0.15px",
+                  }}
+                >
+                  Liquidsat
+                </span>
+              </div>
               {/* Nav Links - hidden on very small, shown from sm */}
-              <div className="hidden sm:flex items-center gap-3 md:gap-5">
+              <div className="hidden sm:flex items-center justify-center gap-3 md:gap-5 w-full">
                 <a
                   href="https://liquidsat.gitbook.io/liquidsat/documentation"
                   target="_blank"
@@ -86,8 +101,8 @@ export const HeroSection = (): JSX.Element => {
                   className="text-white transition-colors text-sm md:text-base whitespace-nowrap"
                   style={{
                     fontFamily: "SF Pro",
-                    fontWeight: 500,
-                    lineHeight: "18px",
+                    fontWeight: 600,
+                    lineHeight: "16px",
                     letterSpacing: "-0.15px",
                   }}
                 >
@@ -100,8 +115,8 @@ export const HeroSection = (): JSX.Element => {
                   className="text-white transition-colors text-sm md:text-base whitespace-nowrap"
                   style={{
                     fontFamily: "SF Pro",
-                    fontWeight: 500,
-                    lineHeight: "18px",
+                    fontWeight: 400,
+                    lineHeight: "16px",
                     letterSpacing: "-0.15px",
                   }}
                 >
@@ -139,6 +154,7 @@ export const HeroSection = (): JSX.Element => {
             style={{
               fontFamily: "SF Pro Display",
               lineHeight: "1.2",
+              fontWeight: 500,
               fontSize: "calc(100vh * 56 / 1080)",
               marginTop: "calc(100vh * 48 / 1080)",
             }}

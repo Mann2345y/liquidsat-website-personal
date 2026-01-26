@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const TAB_CONTENT = {
@@ -32,7 +32,20 @@ export const BorrowLendSection = (): JSX.Element => {
   const [activeTab, setActiveTab] = useState<"borrowers" | "lenders">(
     "borrowers"
   );
+  const [isAnimating, setIsAnimating] = useState(false);
   const content = TAB_CONTENT[activeTab];
+
+  const handleTabChange = (tab: "borrowers" | "lenders") => {
+    if (tab !== activeTab) {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setActiveTab(tab);
+        setTimeout(() => {
+          setIsAnimating(false);
+        }, 50);
+      }, 200);
+    }
+  };
 
   return (
     <section
@@ -155,7 +168,7 @@ export const BorrowLendSection = (): JSX.Element => {
           </div>
 
           {/* Two Financing Mode Cards - stack on mobile/tablet, side-by-side on lg+ */}
-          <div className="flex flex-col lg:flex-row items-stretch justify-center w-full gap-4 sm:gap-6">
+          <div className="flex flex-col lg:flex-row items-stretch justify-center w-full gap-4 sm:gap-6 px-6">
             {[
               {
                 title: "Instant Markets (Pool-Based)",
@@ -185,7 +198,7 @@ export const BorrowLendSection = (): JSX.Element => {
                 className="relative flex-1 min-w-0 overflow-hidden flex flex-col rounded-[16px] sm:rounded-[20px]"
                 style={{
                   maxWidth: "556px",
-                  minHeight: "280px",
+                  minHeight: "auto",
                   background: "linear-gradient(225.7deg, #57432F 0%, #27272A 74.69%)",
                   boxShadow: "0px 0px 0px 6px rgba(255, 255, 255, 0.07)",
                   border: "1px solid rgba(255, 255, 255, 0.4)",
@@ -206,10 +219,10 @@ export const BorrowLendSection = (): JSX.Element => {
                   }}
                 />
                 {/* Row: Image LEFT, Content RIGHT — content height matches image height */}
-                <div className="relative z-10 flex flex-row flex-1 min-h-0">
-                  {/* Left: Image — fixed width, stretches to content height */}
+                <div className="relative z-10 flex flex-row" style={{ height: "160px" }}>
+                  {/* Left: Image — fixed width, fixed height */}
                   <div
-                    className="flex-shrink-0 flex items-center justify-center w-[32%] min-w-[100px] max-w-[160px] p-4 sm:p-5"
+                    className="flex-shrink-0 flex items-center justify-center w-[32%] min-w-[100px] max-w-[160px] p-3 sm:p-4"
                     style={{
                       filter: "drop-shadow(0 4px 24px rgba(251, 146, 60, 0.35))",
                     }}
@@ -219,14 +232,13 @@ export const BorrowLendSection = (): JSX.Element => {
                       alt=""
                       width={140}
                       height={140}
-                      className="object-contain w-full h-full min-h-[120px]"
-
+                      className="object-contain w-full h-full"
+                      style={{ maxHeight: "100px" }}
                     />
                   </div>
                   {/* Right: Content — title, description, features; height aligns to image */}
                   <div
-                    className="flex flex-col flex-1 min-w-0 justify-start py-4 px-3 sm:px-4 md:px-5"
-                    style={{ gap: "10px" }}
+                    className="flex flex-col flex-1 min-w-0 justify-center px-3 sm:px-4 md:px-5 overflow-hidden gap-2"
                   >
                     <h3
                       style={{
@@ -347,7 +359,7 @@ export const BorrowLendSection = (): JSX.Element => {
               }}
             >
               <button
-                onClick={() => setActiveTab("borrowers")}
+                onClick={() => handleTabChange("borrowers")}
                 className={`flex flex-row justify-center items-center rounded-[30px] transition-all duration-300 flex-1 ${activeTab === "borrowers" ? "border border-[#C5C5C5]" : ""
                   }`}
                 style={{
@@ -371,7 +383,7 @@ export const BorrowLendSection = (): JSX.Element => {
                 </span>
               </button>
               <button
-                onClick={() => setActiveTab("lenders")}
+                onClick={() => handleTabChange("lenders")}
                 className={`flex flex-row justify-center items-center rounded-[30px] transition-all duration-300 flex-1 ${activeTab === "lenders" ? "border border-[#C5C5C5]" : ""
                   }`}
                 style={{
@@ -398,9 +410,11 @@ export const BorrowLendSection = (): JSX.Element => {
 
             {/* Title and Description */}
             <div
-              className="flex flex-col items-center w-full"
+              className="flex flex-col items-center w-full transition-all duration-300 ease-in-out"
               style={{
                 gap: "16px",
+                opacity: isAnimating ? 0 : 1,
+                transform: isAnimating ? "translateY(-10px)" : "translateY(0)",
               }}
             >
               <h3
@@ -428,7 +442,13 @@ export const BorrowLendSection = (): JSX.Element => {
           </div>
 
           {/* Three Tilted Cards */}
-          <div className="flex flex-col md:flex-row items-center w-full gap-4 md:gap-0 min-h-auto md:h-[247px]">
+          <div 
+            className="flex flex-col md:flex-row items-center w-full gap-4 md:gap-0 min-h-auto md:h-[247px] mb-6 transition-all duration-300 ease-in-out"
+            style={{
+              opacity: isAnimating ? 0 : 1,
+              transform: isAnimating ? "translateY(10px)" : "translateY(0)",
+            }}
+          >
             {/* Card 1 */}
             <div
               className="relative flex flex-col justify-end items-start rounded-[24px] w-full grow card-tilted-1 p-4 sm:p-5 md:p-7"
@@ -805,27 +825,7 @@ export const BorrowLendSection = (): JSX.Element => {
           </div>
 
           {/* CTA */}
-          <button
-            onClick={() => window.open("https://app.liquidsat.com/", "_blank")}
-            className="flex flex-row justify-center items-center rounded-[30px] px-6 py-3.5 gap-2 mb-12"
-            style={{
-              background:
-                "linear-gradient(104.37deg, #FB923C -6.75%, #F96A27 89.65%)",
-              boxShadow: "inset 0px 2px 2px rgba(0, 0, 0, 0.25)",
-            }}
-          >
-            <span
-              className="text-white"
-              style={{
-                fontFamily: "SF Pro",
-                fontWeight: 590,
-                fontSize: "16px",
-                lineHeight: "20px",
-              }}
-            >
-              {content.ctaText}
-            </span>
-          </button>
+
         </div>
       </div>
     </section>
