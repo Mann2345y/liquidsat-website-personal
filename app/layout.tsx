@@ -197,19 +197,20 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={figtree.className}>
-      <head>
+      <body className="antialiased">
+        {/* JSON-LD Structured Data - placed in body per Next.js best practices */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(organizationSchema).replace(/</g, '\\u003c'),
           }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c'),
+          }}
         />
-      </head>
-      <body className="antialiased">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1NJZMYTZQV"
           strategy="afterInteractive"
