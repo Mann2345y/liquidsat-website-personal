@@ -1,7 +1,6 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
+import { WhitepaperButton } from "@/components/ui/whitepaper-button";
 
 export const SecurityFeaturesSection = (): JSX.Element => {
   return (
@@ -47,31 +46,7 @@ export const SecurityFeaturesSection = (): JSX.Element => {
             >
               Every BTC lock, proof, and settlement is executed through native Bitcoin scripts — not wrapped assets or bridge custodians. Infrastructure for BTC-Backed Finance.
             </p>
-            <button
-              onClick={() =>
-                window.open(
-                  "https://drive.google.com/file/d/18FjOfj7A4YcN7VZ1w5aexxAN3JbXFO20/view",
-                  "_blank"
-                )
-              }
-              className="flex flex-row justify-center items-center px-4 py-3.5 rounded-[30px]"
-              style={{
-                background:
-                  "linear-gradient(104.37deg, #FB923C -6.75%, #F96A27 89.65%)",
-                boxShadow: "inset 0px 2px 2px rgba(0, 0, 0, 0.25)",
-              }}
-            >
-              <span
-                className="text-white text-sm"
-                style={{
-                  fontFamily: "SF Pro",
-                  fontWeight: 590,
-                  lineHeight: "18px",
-                }}
-              >
-                Read Whitepaper
-              </span>
-            </button>
+            <WhitepaperButton />
           </div>
         </div>
 

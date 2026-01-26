@@ -1,45 +1,13 @@
-import dynamic from "next/dynamic";
-import { HeroSection } from "@/components/sections/HeroSection";
+// Server-rendered components (no "use client")
 import { FeaturesSection } from "@/components/sections/FeaturesSection";
+import { BitcoinUtilitySection } from "@/components/sections/BitcoinUtilitySection";
+import { SecurityFeaturesSection } from "@/components/sections/SecurityFeaturesSection";
+import { FooterSection } from "@/components/sections/FooterSection";
 
-// Lazy load below-the-fold components
-const BorrowLendSection = dynamic(
-  () =>
-    import("@/components/sections/BorrowLendSection").then(
-      (mod) => mod.BorrowLendSection
-    ),
-  { ssr: true }
-);
-
-const BitcoinUtilitySection = dynamic(
-  () =>
-    import("@/components/sections/BitcoinUtilitySection").then(
-      (mod) => mod.BitcoinUtilitySection
-    ),
-  { ssr: true }
-);
-
-const SecurityFeaturesSection = dynamic(
-  () =>
-    import("@/components/sections/SecurityFeaturesSection").then(
-      (mod) => mod.SecurityFeaturesSection
-    ),
-  { ssr: true }
-);
-
-const FAQSection = dynamic(
-  () =>
-    import("@/components/sections/FAQSection").then((mod) => mod.FAQSection),
-  { ssr: true }
-);
-
-const FooterSection = dynamic(
-  () =>
-    import("@/components/sections/FooterSection").then(
-      (mod) => mod.FooterSection
-    ),
-  { ssr: true }
-);
+// Client components (interactive)
+import { HeroSection } from "@/components/sections/HeroSection";
+import { BorrowLendSection } from "@/components/sections/BorrowLendSection";
+import { FAQSection } from "@/components/sections/FAQSection";
 
 export default function Home() {
   return (
