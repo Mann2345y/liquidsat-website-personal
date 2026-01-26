@@ -219,10 +219,10 @@ export const BorrowLendSection = (): JSX.Element => {
                   }}
                 />
                 {/* Row: Image LEFT, Content RIGHT — content height matches image height */}
-                <div className="relative z-10 flex flex-row" style={{ height: "160px" }}>
+                <div className="relative z-10 flex flex-row min-h-[140px] sm:min-h-[160px]">
                   {/* Left: Image — fixed width, fixed height */}
                   <div
-                    className="flex-shrink-0 flex items-center justify-center w-[32%] min-w-[100px] max-w-[160px] p-3 sm:p-4"
+                    className="flex-shrink-0 flex items-center justify-center w-[32%] min-w-[80px] sm:min-w-[100px] max-w-[160px] p-2 sm:p-3 md:p-4"
                     style={{
                       filter: "drop-shadow(0 4px 24px rgba(251, 146, 60, 0.35))",
                     }}
@@ -233,22 +233,23 @@ export const BorrowLendSection = (): JSX.Element => {
                       width={140}
                       height={140}
                       className="object-contain w-full h-full"
-                      style={{ maxHeight: "100px" }}
+                      style={{ maxHeight: "80px", maxWidth: "80px" }}
                     />
                   </div>
                   {/* Right: Content — title, description, features; height aligns to image */}
                   <div
-                    className="flex flex-col flex-1 min-w-0 justify-center px-3 sm:px-4 md:px-5 overflow-hidden gap-2"
+                    className="flex flex-col flex-1 min-w-0 justify-center px-2 sm:px-4 md:px-5 gap-1.5 sm:gap-2"
                   >
                     <h3
                       style={{
                         fontFamily: "SF Pro, system-ui, sans-serif",
                         fontWeight: 600,
-                        fontSize: "16px",
+                        fontSize: "14px",
                         lineHeight: "1.3",
                         letterSpacing: "-0.4px",
                         color: "#fff",
                       }}
+                      className="sm:text-base"
                     >
                       {card.title}
                     </h3>
@@ -256,24 +257,25 @@ export const BorrowLendSection = (): JSX.Element => {
                       style={{
                         fontFamily: "SF Pro, system-ui, sans-serif",
                         fontWeight: 400,
-                        fontSize: "13px",
-                        lineHeight: "1.45",
+                        fontSize: "12px",
+                        lineHeight: "1.4",
                         letterSpacing: "-0.2px",
                         color: "rgba(255, 255, 255, 0.75)",
                       }}
+                      className="sm:text-[13px]"
                     >
                       {card.description}
                     </p>
-                    <ul className="flex flex-col" style={{ gap: "6px", listStyle: "none", padding: 0, margin: 0 }}>
+                    <ul className="flex flex-col sm:gap-[6px]" style={{ gap: "4px", listStyle: "none", padding: 0, margin: 0 }}>
                       {card.features.map((f) => (
                         <li
                           key={f}
-                          className="flex items-start gap-2"
+                          className="flex items-start gap-1.5 sm:gap-2 sm:text-[13px] sm:leading-[1.5]"
                           style={{
                             fontFamily: "SF Pro, system-ui, sans-serif",
                             fontWeight: 500,
-                            fontSize: "13px",
-                            lineHeight: "1.5",
+                            fontSize: "12px",
+                            lineHeight: "1.4",
                             letterSpacing: "-0.4px",
                             color: "rgba(255, 255, 255, 0.9)",
                           }}
@@ -442,7 +444,7 @@ export const BorrowLendSection = (): JSX.Element => {
           </div>
 
           {/* Three Tilted Cards */}
-          <div 
+          <div
             className="flex flex-col md:flex-row items-center w-full gap-4 md:gap-0 min-h-auto md:h-[247px] mb-6 transition-all duration-300 ease-in-out"
             style={{
               opacity: isAnimating ? 0 : 1,
@@ -565,7 +567,7 @@ export const BorrowLendSection = (): JSX.Element => {
                 }}
               >
                 <p
-                  className="text-white flex items-center mr-36"
+                  className="text-white flex items-center md:mr-36"
                   style={{
                     fontFamily: "SF Pro",
                     fontWeight: 500,

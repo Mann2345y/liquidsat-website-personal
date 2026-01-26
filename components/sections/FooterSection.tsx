@@ -4,7 +4,7 @@ import { FooterCTAButtons } from "@/components/ui/footer-cta-buttons";
 export const FooterSection = (): JSX.Element => {
   return (
     <footer
-      className="relative w-full overflow-hidden min-h-[525px] md:min-h-[550px]"
+      className="relative w-full overflow-hidden min-h-[750px] sm:min-h-[600px] md:min-h-[600px]"
       style={{
         background: "#0F0F0F",
         borderRadius: "24px 24px 0px 0px",
@@ -429,7 +429,7 @@ export const FooterSection = (): JSX.Element => {
         <div className="relative z-10 flex flex-col items-center gap-8 sm:gap-10 md:gap-12 px-4 sm:px-6 md:px-10 py-10 sm:py-12 md:py-14 w-full max-w-[1390px] mx-auto">
           <div className="flex flex-col items-center gap-4 sm:gap-5 md:gap-[22px]">
             <h2
-              className="text-white text-center w-full max-w-[812px] whitespace-nowrap"
+              className="text-white text-center w-full max-w-[812px]"
               style={{
                 fontFamily: "SF Pro Display",
                 fontWeight: 500,
@@ -467,7 +467,7 @@ export const FooterSection = (): JSX.Element => {
 
         {/* Content */}
         <div
-          className="flex flex-col sm:flex-row justify-between items-start w-full py-6 sm:py-8 gap-6 sm:gap-0 px-4 sm:px-6 md:px-10 max-w-[1320px] mx-auto min-h-0"
+          className="flex flex-col sm:flex-row justify-between items-start w-full py-6 sm:py-8 gap-6 sm:gap-0 px-4 sm:px-6 md:px-10 max-w-[1320px] mx-auto min-h-0 pb-8 sm:pb-8"
         >
           {/* Nav - Navigation */}
           <div
@@ -612,6 +612,21 @@ export const FooterSection = (): JSX.Element => {
               </button>
             </div>
           </div>
+
+          {/* Copyright Notice */}
+        </div>
+        <div className="w-full flex justify-center items-center py-4 sm:py-6 border-t border-white/10 mt-4 sm:mt-0">
+          <p
+            className="text-white/60 text-xs sm:text-sm text-center px-2"
+            style={{
+              fontFamily: "SF Pro",
+              fontWeight: 400,
+              lineHeight: "16px",
+              letterSpacing: "-0.15px",
+            }}
+          >
+            © Copyright Liquidsat 2026
+          </p>
         </div>
       </div>
     </footer>
