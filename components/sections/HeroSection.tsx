@@ -19,7 +19,7 @@ export const HeroSection = (): JSX.Element => {
         width: '100%',
         height: '100vh',
         background: '#EEE8E2',
-        borderRadius: '0px 0px 32px 32px',
+        borderRadius: '0',
         boxShadow: '0px 4px 8px 1px rgba(0, 0, 0, 0.15)',
       }}
     >
@@ -44,7 +44,7 @@ export const HeroSection = (): JSX.Element => {
           }}
         >
           <Image
-            src="/desktop-30/frame_002.png"
+            src="/desktop-30/frame_003.png"
             alt="abstract bitcoin financing layer showing non-custodial liquidity flow"
             fill
             className="object-cover w-screen h-screen"
@@ -80,7 +80,9 @@ export const HeroSection = (): JSX.Element => {
               {/* Nav Links - hidden on very small, shown from sm */}
               <div className="hidden sm:flex items-center gap-3 md:gap-5">
                 <a
-                  href="#docs"
+                  href="https://liquidsat.gitbook.io/liquidsat/documentation"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white transition-colors text-sm md:text-base whitespace-nowrap"
                   style={{
                     fontFamily: "SF Pro",
@@ -92,7 +94,9 @@ export const HeroSection = (): JSX.Element => {
                   Docs
                 </a>
                 <a
-                  href="#whitepaper"
+                  href="https://drive.google.com/file/d/18FjOfj7A4YcN7VZ1w5aexxAN3JbXFO20/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white transition-colors text-sm md:text-base whitespace-nowrap"
                   style={{
                     fontFamily: "SF Pro",
@@ -131,11 +135,12 @@ export const HeroSection = (): JSX.Element => {
       >
         <div className="flex flex-col items-center gap-3 sm:gap-4 w-full">
           <h1
-            className="text-center w-full font-[500] tracking-[-0.4px] text-[#27272A] m-0"
+            className="text-center w-full tracking-[-0.4px] text-[#27272A] m-0"
             style={{
               fontFamily: "SF Pro Display",
-              fontSize: "clamp(1.5rem, 5vw, 48px)",
               lineHeight: "1.2",
+              fontSize: "calc(100vh * 56 / 1080)",
+              marginTop: "calc(100vh * 48 / 1080)",
             }}
           >
             Native Bitcoin Financing, Reimagined
@@ -189,6 +194,7 @@ export const HeroSection = (): JSX.Element => {
       </div>
 
       {/* Bottom Description Text - Absolute positioned at bottom, responsive */}
+      {/* 
       <p
         className="absolute z-10 text-center left-1/2 -translate-x-1/2 w-[90%] max-w-[862px] bottom-4 sm:bottom-5 text-xs sm:text-sm md:text-base px-2"
         style={{
@@ -202,7 +208,7 @@ export const HeroSection = (): JSX.Element => {
       >
         19.9 Million BTC Lie Idle — Let&apos;s Change That by bringing liquidity to native Bitcoin — bridging ecosystems without bridges.
       </p>
-
+*/}
       {/* Sequence animation controller - DISABLED FOR TESTING
           When re-enabling: add canvasRef, sequenceConfig, and <canvas ref={canvasRef} /> */}
     </section>

@@ -1,469 +1,156 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+
+const FEATURES = [
+  {
+    title: "Non-Custodial by Design",
+    description:
+      "Your BTC stays on Bitcoin, secured by native scripts. Stablecoins flow directly between lender and borrower, enabling true non-custodial Bitcoin financing.",
+    icon: "/shield.svg",
+  },
+  {
+    title: "Bridge-Free Architecture",
+    description:
+      "No wrapped BTC. No synthetic assets. No bridge risks. All collateral handling is verifiable with native Bitcoin proofs.",
+    icon: "/lightning.svg",
+    bgImage: "/bg-card-2.png",
+  },
+  {
+    title: "Wallet-to-Wallet Execution",
+    description:
+      "LiquidSat never holds user funds. All capital moves directly between wallets the moment a loan is matched.",
+    icon: "/wallet.svg",
+    bgImage: "/bg-card-3.png",
+  },
+  {
+    title: "Deterministic Settlement Infrastructure",
+    description:
+      "Every financing outcome is defined upfront and enforced through Bitcoin-native scripts, removing counterparty ambiguity.",
+    icon: "/btc.svg",
+    bgImage: "/bg-card-4.png",
+  },
+];
+
+function FeatureCard({
+  feature,
+  className = "",
+}: {
+  feature: (typeof FEATURES)[0];
+  className?: string;
+}): JSX.Element {
+  return (
+    <div
+      className={`relative flex flex-col rounded-[12px] p-8 min-h-[264px] h-full overflow-hidden ${className}`}
+      style={{ background: "#FAECCF" }}
+    >
+      {feature.bgImage && (
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[120px] sm:h-[140px] pointer-events-none"
+          aria-hidden
+        >
+          <img
+            src={feature.bgImage}
+            alt=""
+            className="w-full h-full object-cover object-bottom"
+          />
+        </div>
+      )}
+      <div className="relative z-10 flex flex-col gap-5 flex-1 min-h-0">
+        <div className="rounded-[10px] flex-shrink-0 w-12 h-12">
+          <img
+            src={feature.icon}
+            alt=""
+            width={48}
+            height={48}
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <h3
+          className="text-[#131416]"
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontWeight: 400,
+            fontSize: "clamp(1.1rem, 2vw, 22.7px)",
+            lineHeight: "34px",
+            letterSpacing: "-0.24px",
+            margin: 0,
+          }}
+        >
+          {feature.title}
+        </h3>
+        <p
+          className="text-[#131416]"
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontWeight: 400,
+            fontSize: "14px",
+            lineHeight: "21px",
+            letterSpacing: "-0.16px",
+            margin: 0,
+          }}
+        >
+          {feature.description}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export const FeaturesSection = (): JSX.Element => {
-  const [activeFeature, setActiveFeature] = useState(0);
-
-  const features = [
-    {
-      title: "Non-Custodial by Design",
-      icon: (
-        <svg
-          width="64"
-          height="64"
-          viewBox="0 0 64 64"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            x="18"
-            y="28"
-            width="28"
-            height="24"
-            rx="2"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            fill="none"
-          />
-          <path
-            d="M22 28V20C22 14.477 26.477 10 32 10C37.523 10 42 14.477 42 20V28"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-          <circle cx="32" cy="38" r="3" fill="#F59E0B" />
-          <path
-            d="M32 41V46"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-        </svg>
-      ),
-      description:
-        "Your BTC stays on Bitcoin, secured by native scripts. Stablecoins flow directly between lender and borrower, enabling true non-custodial Bitcoin financing.",
-    },
-    {
-      title: "Bridge-Free Architecture",
-      icon: (
-        <svg
-          width="64"
-          height="64"
-          viewBox="0 0 64 64"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="16"
-            cy="32"
-            r="8"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            fill="none"
-          />
-          <circle
-            cx="48"
-            cy="32"
-            r="8"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            fill="none"
-          />
-          <path
-            d="M24 32H40"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-          <path
-            d="M34 26L40 32L34 38"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M28 18L32 14L36 18"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <text
-            x="32"
-            y="52"
-            textAnchor="middle"
-            fill="#F59E0B"
-            fontSize="12"
-            fontWeight="bold"
-          >
-            NO BRIDGE
-          </text>
-        </svg>
-      ),
-      description:
-        "No wrapped BTC. No synthetic assets. No bridge risks. All collateral handling is verifiable with native Bitcoin proofs.",
-    },
-    {
-      title: "Dual Financing Models",
-      icon: (
-        <svg
-          width="64"
-          height="64"
-          viewBox="0 0 64 64"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M32 12V52"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-          <path
-            d="M18 20L26 28L18 36"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M46 28L38 36L46 44"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <circle cx="18" cy="28" r="4" fill="#F59E0B" />
-          <circle cx="46" cy="36" r="4" fill="#F59E0B" />
-          <text x="12" y="48" fill="#F59E0B" fontSize="9" fontWeight="bold">
-            USD
-          </text>
-          <text x="44" y="52" fill="#F59E0B" fontSize="9" fontWeight="bold">
-            BTC
-          </text>
-        </svg>
-      ),
-      description:
-        "Access instant fixed-rate liquidity through BTC financing pools, or create personalized peer-to-peer loan terms.",
-    },
-    {
-      title: "Wallet-to-Wallet Execution",
-      icon: (
-        <svg
-          width="64"
-          height="64"
-          viewBox="0 0 64 64"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="32"
-            cy="32"
-            r="18"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            fill="none"
-          />
-          <path
-            d="M32 20V32L40 40"
-            stroke="#F59E0B"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <circle cx="32" cy="32" r="2" fill="#F59E0B" />
-          <path
-            d="M22 14L18 10M42 14L46 10M50 22L54 18M50 42L54 46M42 50L46 54M22 50L18 54M14 42L10 46M14 22L10 18"
-            stroke="#F59E0B"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-      ),
-      description:
-        "LiquidSat never holds user funds. All capital moves directly between wallets the moment a loan is matched.",
-    },
-  ];
-
-  // Auto-cycle through features every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveFeature((prev) => (prev + 1) % features.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [features.length]);
-
   return (
     <section
-      className="flex flex-col items-center px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[84px] py-0 w-full relative"
+      className="flex flex-col items-center w-full relative"
       style={{
         minHeight: "auto",
         backgroundColor: "#FFFFFF",
       }}
     >
-      {/* Container */}
       <div
-        className="w-full flex flex-col items-start pt-8 sm:pt-12 md:pt-[60px] pb-0"
+        className="w-full flex flex-col items-center px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[84px] py-12 sm:py-16 md:py-[60px]"
         style={{ maxWidth: "1320px" }}
       >
-        {/* Header */}
-        <div className="flex flex-col items-start gap-4 sm:gap-6 w-full max-w-[917px] mb-8 sm:mb-10 md:mb-[50px]">
+        {/* Header - centered */}
+        <div className="flex flex-col items-center justify-center text-center w-full  mb-10 sm:mb-12 md:mb-[50px] ">
           <h2
-            className="text-[#27272A] text-2xl sm:text-3xl md:text-[32px]"
+            className="text-[#27272A] w-full text-left"
             style={{
               fontFamily: "SF Pro Display",
               fontWeight: 500,
-              lineHeight: "1.25",
+              fontSize: "clamp(1.5rem, 4vw, 40px)",
+              lineHeight: "46px",
               letterSpacing: "-0.4px",
+              margin: 0,
             }}
           >
-            The Bitcoin Financing Layer — Unlock Liquidity Without Selling Your
-            BTC
+            The Simplest Way to Unlock Liquidity from Your Bitcoin
           </h2>
           <p
-            className="text-[#71717A] text-base sm:text-lg md:text-[18px]"
+            className="text-[#71717A] w-full mt-4 text-left"
             style={{
               fontFamily: "SF Pro",
-              fontWeight: 500,
-              lineHeight: "1.44",
+              fontWeight: 400,
+              fontSize: "clamp(1rem, 2.2vw, 24px)",
+              lineHeight: "29px",
               letterSpacing: "-0.4px",
             }}
           >
-            LiquidSat transforms your Bitcoin into usable liquidity across
-            chains — safely, instantly, and without ever compromising custody.
+            LiquidSat makes your BTC productive, without selling, wrapping, or
+            trusting intermediaries.
           </p>
         </div>
 
-        {/* Key Features - Two Column Layout */}
-        <div
-          className="flex flex-col lg:flex-row justify-between items-start w-full gap-6 sm:gap-10 lg:gap-14"
-          style={{ minHeight: "auto" }}
-        >
-          {/* Left Column - Feature List */}
-          <div className="flex flex-col items-start gap-1.5 w-full lg:max-w-[636px]">
-            {features.map((feature, index) => (
-              <React.Fragment key={index}>
-                <button
-                  onClick={() => setActiveFeature(index)}
-                  className={`
-                    flex flex-row items-center w-full h-[60px] sm:h-[72px] rounded-[12px] sm:rounded-[20px] px-4 sm:px-8 md:px-[42px] py-4 sm:py-6 
-                    transition-all duration-500 ease-in-out relative overflow-hidden
-                    ${
-                      activeFeature === index
-                        ? "bg-[#FAECCF] shadow-[inset_0px_4px_4px_rgba(0,0,0,0.1)]"
-                        : "bg-transparent hover:bg-[#F6F2EA]"
-                    }
-                  `}
-                  style={{
-                    fontFamily: "SF Pro",
-                    fontWeight: 400,
-                    lineHeight: "28px",
-                    letterSpacing: "-0.4px",
-                    color: activeFeature === index ? "#030303" : "#6C6E74",
-                  }}
-                >
-                  {/* Background mask effect for active item */}
-                  {activeFeature === index && (
-                    <>
-                      <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                          background:
-                            "radial-gradient(50% 50% at 50% 50%, #000000 25.47%, rgba(0, 0, 0, 0) 100%)",
-                          opacity: 0.03,
-                          mixBlendMode: "multiply",
-                        }}
-                      />
-                      <svg
-                        className="absolute left-0 top-0 h-full opacity-20"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        style={{ transform: "scale(1.5)" }}
-                      >
-                        <circle cx="10" cy="10" r="10" fill="#FFFFFF" />
-                      </svg>
-                    </>
-                  )}
-                  <span className="relative z-10 text-sm sm:text-base">
-                    {feature.title}
-                  </span>
-                </button>
-                {/* Separator between sections — always visible */}
-                {index < features.length - 1 && (
-                  <div
-                    className="h-px w-full flex-shrink-0"
-                    style={{ backgroundColor: "#E4E4E7" }}
-                    aria-hidden
-                  />
-                )}
-              </React.Fragment>
-            ))}
+        {/* 2x2 Cards: flex rows — row1: narrow | wide, row2: wide | narrow */}
+        <div className="flex flex-col gap-6 sm:gap-8 w-full">
+          {/* Row 1: 1st card narrower, 2nd wider */}
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 w-full items-stretch">
+            <FeatureCard feature={FEATURES[0]} className="w-full md:flex-[0_0_46%]" />
+            <FeatureCard feature={FEATURES[1]} className="w-full md:flex-1" />
           </div>
-
-          {/* Right Column - Feature Display Card */}
-          <div
-            className="relative flex flex-col justify-center items-center rounded-[12px] sm:rounded-[20px] overflow-hidden flex-1 w-full min-w-0 p-4 sm:p-5 md:p-6"
-            style={{
-              isolation: "isolate",
-              minHeight: "280px",
-              maxWidth: "100%",
-              background:
-                "linear-gradient(225.7deg, #57432F 0%, #27272A 74.69%)",
-              boxShadow: "0px 0px 0px 6px rgba(18, 18, 20, 0.07)",
-            }}
-          >
-            {/* Animated Blur Gradients */}
-            <div
-              className="absolute"
-              style={{
-                width: "88px",
-                height: "606px",
-                left: "41.93px",
-                top: "-22.47px",
-                background:
-                  "linear-gradient(180deg, #FDBA74 0%, rgba(253, 186, 116, 0) 100%)",
-                transform: "rotate(31deg)",
-                filter: "blur(9px)",
-              }}
-            />
-            <div
-              className="absolute"
-              style={{
-                width: "88.01px",
-                height: "568px",
-                left: "171.44px",
-                top: "66.63px",
-                background:
-                  "linear-gradient(180deg, #FDBA74 0%, rgba(253, 186, 116, 0) 100%)",
-                opacity: 0.51,
-                transform: "rotate(23deg)",
-                filter: "blur(9px)",
-              }}
-            />
-            <div
-              className="absolute"
-              style={{
-                width: "88px",
-                height: "659px",
-                left: "339.23px",
-                bottom: "-134.28px",
-                background:
-                  "linear-gradient(180deg, #FDBA74 0%, rgba(253, 186, 116, 0) 100%)",
-                opacity: 0.6,
-                transform: "rotate(18deg)",
-                filter: "blur(9px)",
-              }}
-            />
-            <div
-              className="absolute"
-              style={{
-                width: "88px",
-                height: "530.99px",
-                left: "-97.41px",
-                top: "60.55px",
-                background:
-                  "linear-gradient(180deg, #FDBA74 0%, rgba(253, 186, 116, 0) 100%)",
-                opacity: 0.55,
-                transform: "rotate(43deg)",
-                filter: "blur(9px)",
-              }}
-            />
-
-            {/* Content Container */}
-            <div
-              className="relative z-10 flex flex-col justify-center items-center w-full h-full"
-              style={{ padding: "0px" }}
-            >
-              {/* White Card with Feature Details */}
-              <div
-                className="bg-white rounded-[12px] sm:rounded-[16px] p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out w-full max-w-[340px]"
-                style={{
-                  minHeight: "240px",
-                  boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.15)",
-                }}
-              >
-                {/* Icon */}
-                <div
-                  className="mb-4 sm:mb-6 transition-transform duration-500 ease-in-out scale-75 sm:scale-100"
-                  style={{
-                    lineHeight: "1",
-                  }}
-                >
-                  {features[activeFeature].icon}
-                </div>
-
-                {/* Title */}
-                <h3
-                  className="mb-3 sm:mb-4 text-[#27272A] text-lg sm:text-xl md:text-2xl"
-                  style={{
-                    fontFamily: "SF Pro Display",
-                    fontWeight: 600,
-                    lineHeight: "1.33",
-                    letterSpacing: "-0.4px",
-                  }}
-                >
-                  {features[activeFeature].title}
-                </h3>
-
-                {/* Description */}
-                <p
-                  className="text-[#71717A] text-sm sm:text-base"
-                  style={{
-                    fontFamily: "SF Pro",
-                    fontWeight: 400,
-                    lineHeight: "1.5",
-                    letterSpacing: "-0.2px",
-                  }}
-                >
-                  {features[activeFeature].description}
-                </p>
-              </div>
-            </div>
-
-            {/* Border Overlay */}
-            <div
-              className="absolute inset-0 pointer-events-none rounded-[20px]"
-              style={{
-                border: "1px solid #FFFFFF",
-              }}
-            />
-
-            {/* Bottom Mask Gradient */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(50% 246% at 47.2% 91.4%, rgba(0, 0, 0, 0) 51.77%, #000000 100%)",
-              }}
-            />
-
-            {/* Decorative Pattern Overlay */}
-            <div
-              className="absolute inset-0 pointer-events-none opacity-10"
-              style={{
-                mixBlendMode: "lighten",
-              }}
-            >
-              <svg
-                className="absolute top-0 left-0"
-                width="63"
-                height="63"
-                viewBox="0 0 63 63"
-              >
-                <circle
-                  cx="31.5"
-                  cy="31.5"
-                  r="31.5"
-                  fill="#000000"
-                  stroke="#FFFFFF"
-                  strokeWidth="1"
-                />
-              </svg>
-            </div>
+          {/* Row 2: 1st wider, 2nd narrower (reversed) */}
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 w-full items-stretch">
+            <FeatureCard feature={FEATURES[2]} className="w-full md:flex-1" />
+            <FeatureCard feature={FEATURES[3]} className="w-full md:flex-[0_0_46%]" />
           </div>
         </div>
       </div>

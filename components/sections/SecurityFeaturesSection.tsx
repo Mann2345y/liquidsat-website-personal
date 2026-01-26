@@ -48,6 +48,12 @@ export const SecurityFeaturesSection = (): JSX.Element => {
               Every BTC lock, proof, and settlement is executed through native Bitcoin scripts — not wrapped assets or bridge custodians. Infrastructure for BTC-Backed Finance.
             </p>
             <button
+              onClick={() =>
+                window.open(
+                  "https://drive.google.com/file/d/18FjOfj7A4YcN7VZ1w5aexxAN3JbXFO20/view",
+                  "_blank"
+                )
+              }
               className="flex flex-row justify-center items-center px-4 py-3.5 rounded-[30px]"
               style={{
                 background:

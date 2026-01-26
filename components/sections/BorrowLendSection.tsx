@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const TAB_CONTENT = {
   borrowers: {
-    h3: "Access Bitcoin-backed liquidity without selling or wrapping",
+    h3: "Access Bitcoin-backed liquidity",
     subheadline:
       "Get stablecoins instantly by locking BTC on Bitcoin — with full ownership, full control, and zero custody risk.",
     benefits: [
@@ -16,7 +16,7 @@ const TAB_CONTENT = {
     ctaText: "→ Start Borrowing",
   },
   lenders: {
-    h3: "Earn Yield from Bitcoin-secured financing, without locking capital in contracts",
+    h3: "Earn Yield from Bitcoin-Secured Financing",
     subheadline:
       "Lend stablecoins directly from your wallet to borrowers or financing pools, and earn a predictable BTC-backed yield.",
     benefits: [
@@ -132,24 +132,23 @@ export const BorrowLendSection = (): JSX.Element => {
               <button
                 className="flex flex-row justify-center items-center rounded-[30px]"
                 style={{
-                  width: "149px",
+                  width: "177px",
                   height: "48px",
-                  padding: "14px 16px",
-                  gap: "8px",
-                  background:
-                    "linear-gradient(100.23deg, rgba(254, 215, 170, 0.2) 22.17%, rgba(253, 186, 116, 0.2) 74.43%, rgba(251, 146, 60, 0.2) 100%)",
-                  border: "1px solid #C5C5C5",
+                  background: "linear-gradient(94.33deg, #FB923C 0%, #F96A27 89.65%)",
+                  boxShadow: "inset 0px 2px 2px rgba(0, 0, 0, 0.25)",
                 }}
               >
                 <span
-                  className="text-white text-sm"
                   style={{
                     fontFamily: "SF Pro",
-                    fontWeight: 590,
-                    lineHeight: "18px",
+                    fontWeight: 700,
+                    fontSize: "16px",
+                    lineHeight: "20px",
+                    color: "#FFFFFF",
+                    textAlign: "center",
                   }}
                 >
-                  Download Now
+                  → Start Lending
                 </span>
               </button>
             </div>
@@ -160,27 +159,25 @@ export const BorrowLendSection = (): JSX.Element => {
             {[
               {
                 title: "Instant Markets (Pool-Based)",
-                subtitle: "Market Based Financing",
+                description: "Access liquidity or deploy capital immediately at predefined terms.",
                 image: "/food.svg",
                 features: [
-                  "Instant execution at pre-defined rates",
-                  "Instant execution at pre-defined LTV",
-                  "Instant execution at pre-defined duration",
+                  "Fixed rates and durations, no negotiation",
+                  "Choose pools based on risk appetite",
                 ],
-                bestForLabel: "Passive Lenders",
+                bestForLabel: "Users who value speed and standard terms",
                 bestForIcon: "shield",
               },
               {
                 title: "Custom Agreements",
-                subtitle: "Personalized Loans. Direct Agreement Between Parties.",
+                description: "Create bespoke Bitcoin-backed financing agreements.",
                 image: "/contract.svg",
                 features: [
-                  "Negotiate custom interest rates",
-                  "Negotiate custom durations",
-                  "Direct wallet-to-wallet settlement",
+                  "Tailor LTV, duration, and amount",
+                  "Bilateral exposure between lender & borrower",
                 ],
-                bestForLabel: "Active Lenders or Borrowers",
-                bestForIcon: "active",
+                bestForLabel: "Users who need flexibility or custom structures",
+                bestForIcon: "people",
               },
             ].map((card) => (
               <div
@@ -191,7 +188,7 @@ export const BorrowLendSection = (): JSX.Element => {
                   minHeight: "280px",
                   background: "linear-gradient(225.7deg, #57432F 0%, #27272A 74.69%)",
                   boxShadow: "0px 0px 0px 6px rgba(255, 255, 255, 0.07)",
-                  border: "1px solid #FFFFFF",
+                  border: "1px solid rgba(255, 255, 255, 0.4)",
                   boxSizing: "border-box",
                 }}
               >
@@ -208,61 +205,53 @@ export const BorrowLendSection = (): JSX.Element => {
                     background: "linear-gradient(180deg, rgba(253, 186, 116, 0.2) 0%, rgba(253, 186, 116, 0) 100%)",
                   }}
                 />
-                {/* Top row: Image LEFT, Content RIGHT */}
-                <div className="relative z-10 flex flex-col sm:flex-row flex-1 min-h-0">
-                  {/* Left: Image — ~28–32% width */}
-                  {card.image && (
-                    <div
-                      className="flex-shrink-0 flex items-center justify-center w-full sm:w-[30%] min-h-[140px] sm:min-h-0 p-4 sm:p-5 md:p-6"
+                {/* Row: Image LEFT, Content RIGHT — content height matches image height */}
+                <div className="relative z-10 flex flex-row flex-1 min-h-0">
+                  {/* Left: Image — fixed width, stretches to content height */}
+                  <div
+                    className="flex-shrink-0 flex items-center justify-center w-[32%] min-w-[100px] max-w-[160px] p-4 sm:p-5"
+                    style={{
+                      filter: "drop-shadow(0 4px 24px rgba(251, 146, 60, 0.35))",
+                    }}
+                  >
+                    <Image
+                      src={card.image}
+                      alt=""
+                      width={140}
+                      height={140}
+                      className="object-contain w-full h-full min-h-[120px]"
+
+                    />
+                  </div>
+                  {/* Right: Content — title, description, features; height aligns to image */}
+                  <div
+                    className="flex flex-col flex-1 min-w-0 justify-start py-4 px-3 sm:px-4 md:px-5"
+                    style={{ gap: "10px" }}
+                  >
+                    <h3
                       style={{
-                        filter: "drop-shadow(0 4px 24px rgba(253, 186, 116, 0.35)) drop-shadow(-2px -2px 12px rgba(255, 255, 255, 0.18))",
+                        fontFamily: "SF Pro, system-ui, sans-serif",
+                        fontWeight: 600,
+                        fontSize: "16px",
+                        lineHeight: "1.3",
+                        letterSpacing: "-0.4px",
+                        color: "#fff",
                       }}
                     >
-                      <Image
-                        src={card.image}
-                        alt=""
-                        width={140}
-                        height={140}
-                        className="object-contain w-28 h-28 sm:w-32 sm:h-32 md:w-[130px] md:h-[130px]"
-                        style={{
-                          filter: "invert(0.78) sepia(0.38) saturate(3.2) hue-rotate(-8deg) brightness(1.08) contrast(1.08)",
-                          opacity: 0.96,
-                        }}
-                      />
-                    </div>
-                  )}
-                  {/* Right: Title, subtitle, features */}
-                  <div
-                    className="flex flex-col flex-1 min-w-0 px-4 pb-3 sm:px-5 sm:pb-4 md:px-6 md:pb-5 pt-0 sm:pt-5 md:pt-6"
-                    style={{ gap: "12px", justifyContent: "flex-start" }}
-                  >
-                    <div className="flex flex-col" style={{ gap: "2px" }}>
-                      <span
-                        style={{
-                          fontFamily: "SF Pro, system-ui, sans-serif",
-                          fontWeight: 600,
-                          fontSize: "17px",
-                          lineHeight: "1.3",
-                          letterSpacing: "-0.4px",
-                          color: "#FFFFFF",
-                        }}
-                      >
-                        {card.title}
-                      </span>
-                      <span
-                        style={{
-                          fontFamily: "SF Pro, system-ui, sans-serif",
-                          fontWeight: 500,
-                          fontSize: "13px",
-                          lineHeight: "1.35",
-                          letterSpacing: "-0.136082px",
-                          color: "rgba(255, 255, 255, 0.75)",
-                        }}
-                      >
-                        {card.subtitle}
-                      </span>
-                    </div>
-                    {/* Features with checkmarks */}
+                      {card.title}
+                    </h3>
+                    <p
+                      style={{
+                        fontFamily: "SF Pro, system-ui, sans-serif",
+                        fontWeight: 400,
+                        fontSize: "13px",
+                        lineHeight: "1.45",
+                        letterSpacing: "-0.2px",
+                        color: "rgba(255, 255, 255, 0.75)",
+                      }}
+                    >
+                      {card.description}
+                    </p>
                     <ul className="flex flex-col" style={{ gap: "6px", listStyle: "none", padding: 0, margin: 0 }}>
                       {card.features.map((f) => (
                         <li
@@ -271,20 +260,20 @@ export const BorrowLendSection = (): JSX.Element => {
                           style={{
                             fontFamily: "SF Pro, system-ui, sans-serif",
                             fontWeight: 500,
-                            fontSize: "14px",
+                            fontSize: "13px",
                             lineHeight: "1.5",
                             letterSpacing: "-0.4px",
-                            color: "#FFFFFF",
+                            color: "rgba(255, 255, 255, 0.9)",
                           }}
                         >
-                          <span className="flex-shrink-0 mt-0.5 text-white" aria-hidden>✓</span>
+                          <span className="flex-shrink-0 mt-0.5" style={{ color: "#FB923C" }} aria-hidden>✓</span>
                           <span>{f}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
-                {/* BEST FOR — full-width, recessed, distinct styling */}
+                {/* BEST FOR — full-width, recessed */}
                 <div
                   className="relative z-10 w-full flex flex-col gap-2 px-4 sm:px-5 md:px-6 py-3 sm:py-3.5 md:py-4"
                   style={{
@@ -299,7 +288,7 @@ export const BorrowLendSection = (): JSX.Element => {
                       fontSize: "11px",
                       lineHeight: "1.3",
                       letterSpacing: "0.08em",
-                      color: "rgba(255, 255, 255, 0.85)",
+                      color: "rgba(255, 255, 255, 0.7)",
                       textTransform: "uppercase",
                     }}
                   >
@@ -307,16 +296,9 @@ export const BorrowLendSection = (): JSX.Element => {
                   </span>
                   <div className="flex items-center gap-2">
                     {card.bestForIcon === "shield" ? (
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="flex-shrink-0" style={{ color: "#FDBA74" }} aria-hidden>
-                        <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                        <text x="12" y="15" textAnchor="middle" fill="currentColor" fontSize="8" fontWeight="bold">₿</text>
-                      </svg>
+                      <Image src="/card-1-bottom-icon.svg" alt="" width={20} height={20} className="flex-shrink-0 object-contain" aria-hidden />
                     ) : (
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="flex-shrink-0" style={{ color: "#FDBA74" }} aria-hidden>
-                        <circle cx="9" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                        <circle cx="15" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                        <path d="M7 18v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                      </svg>
+                      <Image src="/card-2-bottom-icon.svg" alt="" width={20} height={20} className="flex-shrink-0 object-contain" aria-hidden />
                     )}
                     <span
                       style={{

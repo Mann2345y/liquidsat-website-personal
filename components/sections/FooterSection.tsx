@@ -536,7 +536,9 @@ export const FooterSection = (): JSX.Element => {
               Home
             </a>
             <a
-              href="#whitepaper"
+              href="https://drive.google.com/file/d/18FjOfj7A4YcN7VZ1w5aexxAN3JbXFO20/view"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white text-sm"
               style={{
                 fontFamily: "SF Pro",
@@ -548,7 +550,9 @@ export const FooterSection = (): JSX.Element => {
               Whitepaper
             </a>
             <a
-              href="#docs"
+              href="https://liquidsat.gitbook.io/liquidsat/documentation"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white text-sm"
               style={{
                 fontFamily: "SF Pro",
@@ -586,6 +590,18 @@ export const FooterSection = (): JSX.Element => {
               }}
             >
               Discord
+            </a>
+            <a
+              href="mailto:info@liquidsat.com"
+              className="text-white text-sm"
+              style={{
+                fontFamily: "SF Pro",
+                fontWeight: 500,
+                lineHeight: "16px",
+                letterSpacing: "-0.15px",
+              }}
+            >
+              Contact us
             </a>
           </div>
 
